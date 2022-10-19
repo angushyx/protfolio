@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,21 +7,17 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-
-    container:{
-      center:true,
-      padding:'12px',
+    container: {
+      center: true,
+      padding: "12px",
     },
 
-  
     extend: {
-
-      fontFamily:{
-          'fredoka':['"Fredoka One"', 'cursive',...defaultTheme.fontFamily.sans],
+      fontFamily: {
+        fredoka: ['"Fredoka One"', "cursive", ...defaultTheme.fontFamily.sans],
       },
 
-      colors:{},
-
+      colors: {},
     },
   },
   plugins: [],
