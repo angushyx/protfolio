@@ -5,13 +5,15 @@
 /* 設定全站 */
 @layer base {
   html {
-    font-family: "fredoka one", "cursive", system-ui, sans-serif;
+    font-family: "fredoka one", "cursive", "Noto Sans TC", "Roboto", system-ui,
+      sans-serif;
+
     @apply scrollbar scrollbar-track-gray-100 scrollbar-thumb-amber-300;
+  }
+  body {
+    @apply bg-yellow-200;
   }
 }
 
 @layer components {
-  .Anibutton {
-    @apply;
-  }
 }
