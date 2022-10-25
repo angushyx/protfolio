@@ -241,11 +241,19 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
           </div>
         </section>
 
-        <section className="mt-8">
-          <h3 className="subTitle-text">Interested working with me?</h3>
-          <div>
-            <button>Email me</button>
-            <button>See more Projects</button>
+        <section className="my-16 ">
+          <div className="container items-center justify-around rounded-md bg-black p-10 md:flex ">
+            <h3 className="subTitle-text mb-10 text-center text-yellow-100  md:mb-0 md:w-40 md:flex-initial md:text-start">
+              Interested working with me?
+            </h3>
+            <div className="flex flex-col gap-5 md:flex-row">
+              <button className="rounded-lg bg-yellow-50 p-2 text-blue-700 ring-2 ring-blue-500">
+                Email me
+              </button>
+              <button className="rounded-lg p-2 text-blue-700 ring-2 ring-blue-500">
+                See more Projects
+              </button>
+            </div>
           </div>
         </section>
       </main>
