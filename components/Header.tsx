@@ -1,15 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react"
+import { useState } from "react"
 import { FaArrowRight } from "react-icons/fa"
 import Link from "next/link"
 import Image from "next/image"
+import { motion as m } from "framer-motion"
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleToggle = () => {
+    setIsOpen((pre) => !pre)
+  }
+
   return (
     <>
-      <Modal />
+      <Modal isOpen={isOpen} handleToggle={handleToggle} />
       <header>
-        <div className="flex h-16 items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 object-contain text-slate-50 drop-shadow-2xl sm:text-lg md:text-2xl">
+        <div className="flex h-10 items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 object-contain text-sm text-slate-50 drop-shadow-2xl sm:text-lg md:h-16 md:text-2xl">
           Open to opportunities Contact Me
           <span className="ml-3 flex items-center gap-3 text-sm underline-offset-4 hover:cursor-pointer hover:underline md:text-2xl">
             Click here
@@ -18,7 +25,7 @@ const Header = () => {
             </svg>
           </span>
         </div>
-        <div className="container flex items-center justify-between py-8">
+        <div className="container flex items-center justify-between py-6 md:py-8">
           <div className="h-16 w-16">
             <Link href="/">
               <Image
@@ -32,7 +39,10 @@ const Header = () => {
             </Link>
           </div>
           {/* TODO:點下去之後要有動畫 */}
-          <div className="relative z-40 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black md:hidden">
+          <div
+            onClick={handleToggle}
+            className="relative z-40 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black md:hidden"
+          >
             <div className="absolute top-4 h-0.5 w-6/12 -translate-y-1/2 bg-white before:absolute before:top-2 before:h-0.5 before:w-full before:bg-white  before:content-[''] after:absolute  after:top-4 after:h-0.5 after:w-full after:bg-white after:content-['']"></div>
           </div>
           <nav className="hidden md:block">
@@ -61,36 +71,87 @@ const Header = () => {
   )
 }
 
-export const Modal = () => {
+export const Modal = ({ isOpen, handleToggle }) => {
   return (
-    <div className="absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden">
+    <m.div
+      initial={!isOpen ? { opacity: 0, x: "100%", y: "-75%" } : {}}
+      animate={isOpen ? { opacity: 1, x: "0", y: "0" } : {}}
+      transition={isOpen ? { duration: 0.4, ease: "easeOut" } : {}}
+      className="absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden"
+    >
       <nav className="absolute z-30 mt-24 h-full w-full text-white">
-        <ul className="h-full text-center text-lg ">
-          <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
-            <Link href="/work">Work</Link>
-          </li>
-
+        <m.ul
+          initial={!isOpen ? { opacity: 0 } : {}}
+          animate={isOpen ? { opacity: 1 } : {}}
+          transition={isOpen ? { duration: 0.8, ease: "easeOut" } : {}}
+          className="h-full text-center text-3xl"
+        >
+          <Link href="/">
+            <m.li
+              initial={!isOpen ? { x: "100%" } : {}}
+              animate={isOpen ? { x: "0" } : {}}
+              transition={isOpen ? { duration: 0.5, ease: "easeOut" } : {}}
+              onClick={handleToggle}
+              className="my-5 cursor-pointer py-3 hover:text-cyan-500"
+            >
+              Home
+            </m.li>
+          </Link>
+          <Link href="/work">
+            <m.li
+              initial={!isOpen ? { x: "100%" } : {}}
+              animate={isOpen ? { x: "0" } : {}}
+              transition={
+                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.1 } : {}
+              }
+              onClick={handleToggle}
+              className="my-5 cursor-pointer py-3 hover:text-cyan-500"
+            >
+              Work
+            </m.li>
+          </Link>
           <Link href="/blogs">
-            <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
+            <m.li
+              initial={!isOpen ? { x: "100%" } : {}}
+              animate={isOpen ? { x: "0" } : {}}
+              transition={
+                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.2 } : {}
+              }
+              onClick={handleToggle}
+              className="my-5 cursor-pointer py-3 hover:text-cyan-500"
+            >
               Blogs
-            </li>
+            </m.li>
           </Link>
           <Link href="/about">
-            <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
+            <m.li
+              initial={!isOpen ? { x: "100%" } : {}}
+              animate={isOpen ? { x: "0" } : {}}
+              transition={
+                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.3 } : {}
+              }
+              onClick={handleToggle}
+              className="my-5 cursor-pointer py-3 hover:text-cyan-500"
+            >
               About Me
-            </li>
+            </m.li>
           </Link>
           <Link href="/contact">
-            <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
+            <m.li
+              initial={!isOpen ? { x: "100%" } : {}}
+              animate={isOpen ? { x: "0" } : {}}
+              transition={
+                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.4 } : {}
+              }
+              onClick={handleToggle}
+              className="my-3 cursor-pointer py-3 hover:text-cyan-500"
+            >
               Contact
-            </li>
+            </m.li>
           </Link>
-        </ul>
+        </m.ul>
       </nav>
-    </div>
+    </m.div>
   )
 }
 
