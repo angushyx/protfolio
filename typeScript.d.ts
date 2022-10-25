@@ -25,6 +25,11 @@ export interface ProjectsTechs {
   imgUrl: string
 }
 
+export interface ModalToggle {
+  isOpen: boolean
+  handleToggle(): void
+}
+
 export interface ProcessEnv {
   [key: string]: string | undefined
 }

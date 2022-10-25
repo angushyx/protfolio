@@ -4,9 +4,10 @@ import { FaArrowRight } from "react-icons/fa"
 import Link from "next/link"
 import Image from "next/image"
 import { motion as m } from "framer-motion"
+import { ModalToggle } from "../typeScript"
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const handleToggle = () => {
     setIsOpen((pre) => !pre)
@@ -14,6 +15,7 @@ const Header = () => {
 
   return (
     <>
+      {/* TODO:為何 setIsOpen TYPESCRIPT 會報錯? */}
       <Modal isOpen={isOpen} handleToggle={handleToggle} />
       <header>
         <div className="flex h-10 items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 object-contain text-sm text-slate-50 drop-shadow-2xl sm:text-lg md:h-16 md:text-2xl">
@@ -38,7 +40,6 @@ const Header = () => {
               />
             </Link>
           </div>
-          {/* TODO:點下去之後要有動畫 */}
           <div
             onClick={handleToggle}
             className="relative z-40 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black md:hidden"
@@ -71,7 +72,7 @@ const Header = () => {
   )
 }
 
-export const Modal = ({ isOpen, handleToggle }) => {
+export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
   return (
     <m.div
       initial={!isOpen ? { opacity: 0, x: "100%", y: "-75%" } : {}}
