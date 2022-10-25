@@ -7,7 +7,7 @@ import Image from "next/image"
 const Header = () => {
   return (
     <>
-      {/* TODO:SHADOW藥用嗎 */}
+      <Modal />
       <header>
         <div className="flex h-16 items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 object-contain text-slate-50 drop-shadow-2xl sm:text-lg md:text-2xl">
           Open to opportunities Contact Me
@@ -32,7 +32,7 @@ const Header = () => {
             </Link>
           </div>
           {/* TODO:點下去之後要有動畫 */}
-          <div className="relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black md:hidden">
+          <div className="relative z-40 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black md:hidden">
             <div className="absolute top-4 h-0.5 w-6/12 -translate-y-1/2 bg-white before:absolute before:top-2 before:h-0.5 before:w-full before:bg-white  before:content-[''] after:absolute  after:top-4 after:h-0.5 after:w-full after:bg-white after:content-['']"></div>
           </div>
           <nav className="hidden md:block">
@@ -55,29 +55,42 @@ const Header = () => {
               </Link>
             </ul>
           </nav>
-          <nav className="hidden">
-            <ul className="absolute hidden gap-6 text-lg">
-              <li className="cursor-pointer hover:text-cyan-500">
-                <Link href="/">Home</Link>
-              </li>
-              <li className="cursor-pointer hover:text-cyan-500">
-                <Link href="/work">Work</Link>
-              </li>
-
-              <Link href="/blogs">
-                <li className="cursor-pointer hover:text-cyan-500">Blogs</li>
-              </Link>
-              <Link href="/about">
-                <li className="cursor-pointer hover:text-cyan-500">About Me</li>
-              </Link>
-              <Link href="/contact">
-                <li className="cursor-pointer hover:text-cyan-500">Contact</li>
-              </Link>
-            </ul>
-          </nav>
         </div>
       </header>
     </>
+  )
+}
+
+export const Modal = () => {
+  return (
+    <div className="absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden">
+      <nav className="absolute z-30 mt-24 h-full w-full text-white">
+        <ul className="h-full text-center text-lg ">
+          <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
+            <Link href="/">Home</Link>
+          </li>
+          <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
+            <Link href="/work">Work</Link>
+          </li>
+
+          <Link href="/blogs">
+            <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
+              Blogs
+            </li>
+          </Link>
+          <Link href="/about">
+            <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
+              About Me
+            </li>
+          </Link>
+          <Link href="/contact">
+            <li className="my-3 cursor-pointer py-3 hover:text-cyan-500">
+              Contact
+            </li>
+          </Link>
+        </ul>
+      </nav>
+    </div>
   )
 }
 
