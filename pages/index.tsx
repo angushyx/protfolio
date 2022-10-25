@@ -11,20 +11,118 @@ import ProductCard from "../components/ProductCard"
 import TechFall from "../components/TechFall"
 import { MongoClient } from "mongodb"
 import { GetStaticProps } from "next"
-import { Props } from "../typeScript"
+import { Props, Techs } from "../typeScript"
 
-const Home: NextPage<Props> = (props) => {
+const Home: NextPage<Props> = ({ techs, projects }: Props) => {
+  // let info = {
+  //   name: "angus",
+  //   age: 20,
+  //   haspET: true,
+  // }
+
+  // info = {
+  //   name: "david",
+  //   age: 24,
+  //   haspET: false,
+  // }
+  // info = {
+  //   name: "david",
+  //   age: 24,
+  //   haspET: true,
+  //   dog: "cc",
+  // }
+  // info.job = "coding"
+
+  // console.log(info)
+
+  // let justObj: object = { name: "angus" }
+
+  // justObj.name = "david"
+
+  // justObj.name = null
+
+  // justObj = { title: "bod" }
+
+  // justObj.test = { foo: "foo" }
+
+  // justObj = ["12", 3, "425", { foo: "foo" }, false]
+
+  // justObj = () => {
+  //   console.log("歐給")
+  // }
+
+  // justObj = new Object()
+
+  // justObj = new String("123123")
+
+  // justObj = new Number(12312)
+
+  // justObj = Object
+  // justObj = Array
+
+  // let doesItWork1 = function doesItWork1() {
+  //   return undefined
+  // }
+  // let doesItWork2 = function doesItWork2(): undefined {
+  //   return undefined
+  // }
+
+  // let doesItWork3 = function doesItWork3(): undefined {}
+  // let doesItWork4 = function doesItWork4(): void {
+  //   return undefined
+  // }
+
+  // doesItWork1()
+  // doesItWork2()
+  // doesItWork3()
+  // doesItWork4()
+
+  // let objArray1 = [
+  //   {
+  //     message: "hello",
+  //   },
+  //   {
+  //     message: "hi",
+  //   },
+  //   {
+  //     message: "hola",
+  //   },
+  // ]
+
+  // let objArray2 = [
+  //   {
+  //     message: "hello",
+  //   },
+  //   {
+  //     message: "hi",
+  //     revolt: true,
+  //   },
+  //   {
+  //     message: "hola",
+  //   },
+  // ]
+  // let objArray3 = [
+  //   {
+  //     message: "hello",
+  //   },
+  //   {
+  //     message: 12323,
+  //   },
+  //   {
+  //     message: "hola",
+  //   },
+  // ]
+
+  // let x = [
+  //   [1, 2, 3],
+  //   ["jie", "wqe"],
+  //   [true, false, 123, null],
+  //   ["string", undefined],
+  // ]
+  // console.log(x)
+
   return (
     <>
-      {/* <form
-        onSubmit={() => {
-          addNewTech()
-        }}
-      >
-        <input type="text" ref={nameRef} />
-        <input type="text" ref={imgRef} />
-        <button>add</button>
-      </form> */}
       <Head>
         <title>Angus Portfolio</title>
         <meta
@@ -108,7 +206,20 @@ const Home: NextPage<Props> = (props) => {
             </button>
           </div>
           <div className="my-12 flex flex-col gap-10 md:flex-row">
-            <ProductCard projects={props.projects} />
+            {projects.map((project) => {
+              return (
+                <ProductCard
+                  key={project.id}
+                  name={project.name}
+                  imgUrl={project.imgUrl}
+                  id={project.id}
+                  techs={project.techs}
+                  githubUrl={project.githubUrl}
+                  webUrl={project.webUrl}
+                  isLightMode={project.isLightMode}
+                />
+              )
+            })}
           </div>
         </section>
 
@@ -117,17 +228,26 @@ const Home: NextPage<Props> = (props) => {
             Tools, Languages & Frameworks/Libraries
           </h3>
           <div className="mt-12 grid max-h-40 grid-cols-3 justify-items-center gap-3 overflow-y-scroll scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-cyan-600 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-            <TechFall techs={props.techs} />
+            {techs.map((tech: Techs) => {
+              return (
+                <TechFall
+                  id={tech.id}
+                  key={tech.id}
+                  imgUrl={tech.imgUrl}
+                  name={tech.name}
+                />
+              )
+            })}
           </div>
         </section>
 
-        {/* <section className="mt-8">
+        <section className="mt-8">
           <h3 className="subTitle-text">Interested working with me?</h3>
           <div>
             <button>Email me</button>
             <button>See more Projects</button>
           </div>
-        </section> */}
+        </section>
       </main>
     </>
   )

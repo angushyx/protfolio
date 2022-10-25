@@ -1,29 +1,28 @@
 export interface Props {
-  techs: {
-    name: string
-    imgUrl: string
-    id: string
-  }
-  projects: {
-    name: string
-    imgUrl: string
-    id: string
-    techs: string[]
-    githubUrl: string
-    webUrl: string
-    isLightMode: boolean
-  }
+  projects: Projects[]
+  techs: Techs[]
 }
 
-// TODO:練習定義陣列
-export interface projectsTechs {
-  id: string
+export interface Techs {
   name: string
+  imgUrl: string
+  id: string
 }
 
-export interface BlogCard {
-  id: string
+export interface Projects {
   name: string
+  imgUrl: string
+  id: string
+  techs: ProjectsTechs[]
+  githubUrl: string
+  webUrl: string
+  isLightMode: boolean
+}
+
+export interface ProjectsTechs {
+  techId: string
+  name: string
+  imgUrl: string
 }
 
 export interface ProcessEnv {
