@@ -15,7 +15,6 @@ const Header = () => {
 
   return (
     <>
-      {/* TODO:為何 setIsOpen TYPESCRIPT 會報錯? */}
       <Modal isOpen={isOpen} handleToggle={handleToggle} />
       <header>
         <div className="flex h-10 items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 object-contain text-sm text-slate-50 drop-shadow-2xl sm:text-lg md:h-16 md:text-2xl">
@@ -74,7 +73,6 @@ const Header = () => {
 
 export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
   return (
-    // TODO:幹他媽的超級大報版
     <m.div
       initial={
         !isOpen
