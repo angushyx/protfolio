@@ -120,7 +120,6 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
   //   ["string", undefined],
   // ]
   // console.log(x)
-
   return (
     <>
       <Head>
@@ -197,16 +196,16 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
           </div>
         </section>
 
-        <section className="container mt-16">
+        <section className=" container mt-16">
           <div className="flex items-center justify-between">
             <h3 className="subTitle-text">Recent Projects</h3>
 
             <button className="rounded-lg p-2 ring-2 ring-black hover:text-blue-700 hover:ring-blue-500">
-              <Link href="/work">View More</Link>
+              <Link href="/work/projects">View More</Link>
             </button>
           </div>
-          <div className="my-12 flex flex-col gap-10 md:flex-row">
-            {projects.map((project) => {
+          <div className="column-2 mt-10 flex flex-wrap md:flex-row">
+            {projects.slice(0, 2).map((project) => {
               return (
                 <ProductCard
                   key={project.id}
@@ -247,12 +246,16 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
               Interested working with me?
             </h3>
             <div className="flex flex-col gap-5 md:flex-row">
-              <button className="rounded-lg bg-yellow-50 p-2 text-blue-700 ring-2 ring-blue-500">
-                Email me
-              </button>
-              <button className="rounded-lg p-2 text-blue-700 ring-2 ring-blue-500">
-                See more Projects
-              </button>
+              <Link href="mailto:sickmi14798@gmail.com">
+                <button className="rounded-lg bg-yellow-50 p-2 text-blue-700 ring-2 ring-blue-500">
+                  Email me
+                </button>
+              </Link>
+              <Link href="/work/projects">
+                <button className="rounded-lg p-2 text-blue-700 ring-2 ring-blue-500">
+                  See more Projects
+                </button>
+              </Link>
             </div>
           </div>
         </section>

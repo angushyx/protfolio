@@ -31,7 +31,7 @@ const Header = () => {
           <div className="h-16 w-16">
             <Link href="/">
               <Image
-                src="https://images.unsplash.com/photo-1664575600796-ffa828c5cb6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                src="https://i.imgur.com/y7fKZP2.png"
                 alt="my avatar"
                 width="100%"
                 height="100%"
@@ -74,18 +74,21 @@ const Header = () => {
 
 export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
   return (
+    // TODO:幹他媽的超級大報版
     <m.div
       initial={!isOpen ? { opacity: 0, x: "100%", y: "-75%" } : {}}
       animate={isOpen ? { opacity: 1, x: "0", y: "0" } : {}}
       transition={isOpen ? { duration: 0.4, ease: "easeOut" } : {}}
-      className="absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden"
+      className={`absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden ${
+        isOpen ? "" : "hidden"
+      }`}
     >
       <nav className="absolute z-30 mt-24 h-full w-full text-white">
         <m.ul
           initial={!isOpen ? { opacity: 0 } : {}}
           animate={isOpen ? { opacity: 1 } : {}}
           transition={isOpen ? { duration: 0.8, ease: "easeOut" } : {}}
-          className="h-full text-center text-3xl"
+          className={`text-3xl" h-full text-center`}
         >
           <Link href="/">
             <m.li

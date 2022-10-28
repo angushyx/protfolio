@@ -14,10 +14,11 @@ const ProductCard = ({
   githubUrl,
   webUrl,
   isLightMode,
+  id,
 }: Projects) => {
   return (
     <>
-      <div className="rounded-lg md:w-1/2">
+      <div className="w-full rounded-lg p-3 md:w-6/12">
         <Link href={webUrl !== "" ? webUrl : githubUrl}>
           <div className="relative h-56 w-full cursor-pointer md:h-36 lg:h-44 xl:h-64 ">
             <Image
@@ -36,7 +37,7 @@ const ProductCard = ({
             }`}
           >
             <p className="truncate hover:cursor-pointer ">{name}</p>
-            <div className="flex gap-3 rounded-lg  p-2 md:p-3">
+            <div className="flex gap-3 rounded-lg  p-2 ">
               {techs.map((tech) => {
                 return (
                   <Tooltip
@@ -46,7 +47,7 @@ const ProductCard = ({
                     enterDelay={500}
                     leaveDelay={200}
                   >
-                    <Button className="min-w-0 p-0  text-black">
+                    <Button className="min-w-0 p-0 text-black">
                       <div className="h-5 w-5 md:h-6 md:w-6">
                         <Image
                           alt={tech.name}
@@ -62,7 +63,7 @@ const ProductCard = ({
             </div>
           </div>
           <div className="flex justify-evenly gap-3 rounded-b-lg bg-[#586a7e] p-3 text-white">
-            <Link href="/work">
+            <Link href={`/work/projects/${id}`}>
               <p className="flex items-center gap-3  hover:cursor-pointer hover:text-gray-300">
                 <span>
                   <BiDetail />
