@@ -14,112 +14,6 @@ import { GetStaticProps } from "next"
 import { Props, Techs } from "../typeScript"
 
 const Home: NextPage<Props> = ({ techs, projects }: Props) => {
-  // let info = {
-  //   name: "angus",
-  //   age: 20,
-  //   haspET: true,
-  // }
-
-  // info = {
-  //   name: "david",
-  //   age: 24,
-  //   haspET: false,
-  // }
-  // info = {
-  //   name: "david",
-  //   age: 24,
-  //   haspET: true,
-  //   dog: "cc",
-  // }
-  // info.job = "coding"
-
-  // console.log(info)
-
-  // let justObj: object = { name: "angus" }
-
-  // justObj.name = "david"
-
-  // justObj.name = null
-
-  // justObj = { title: "bod" }
-
-  // justObj.test = { foo: "foo" }
-
-  // justObj = ["12", 3, "425", { foo: "foo" }, false]
-
-  // justObj = () => {
-  //   console.log("歐給")
-  // }
-
-  // justObj = new Object()
-
-  // justObj = new String("123123")
-
-  // justObj = new Number(12312)
-
-  // justObj = Object
-  // justObj = Array
-
-  // let doesItWork1 = function doesItWork1() {
-  //   return undefined
-  // }
-  // let doesItWork2 = function doesItWork2(): undefined {
-  //   return undefined
-  // }
-
-  // let doesItWork3 = function doesItWork3(): undefined {}
-  // let doesItWork4 = function doesItWork4(): void {
-  //   return undefined
-  // }
-
-  // doesItWork1()
-  // doesItWork2()
-  // doesItWork3()
-  // doesItWork4()
-
-  // let objArray1 = [
-  //   {
-  //     message: "hello",
-  //   },
-  //   {
-  //     message: "hi",
-  //   },
-  //   {
-  //     message: "hola",
-  //   },
-  // ]
-
-  // let objArray2 = [
-  //   {
-  //     message: "hello",
-  //   },
-  //   {
-  //     message: "hi",
-  //     revolt: true,
-  //   },
-  //   {
-  //     message: "hola",
-  //   },
-  // ]
-  // let objArray3 = [
-  //   {
-  //     message: "hello",
-  //   },
-  //   {
-  //     message: 12323,
-  //   },
-  //   {
-  //     message: "hola",
-  //   },
-  // ]
-
-  // let x = [
-  //   [1, 2, 3],
-  //   ["jie", "wqe"],
-  //   [true, false, 123, null],
-  //   ["string", undefined],
-  // ]
-  // console.log(x)
   return (
     <>
       <Head>
@@ -179,12 +73,16 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
               </ul>
             </div>
             <div className="mt-4 flex justify-center gap-3 md:justify-start">
-              <button className="rounded-lg bg-cyan-300 p-3 hover:text-white ">
-                Email me
-              </button>
-              <button className="rounded-lg p-3 ring-2 ring-gray-800 hover:text-blue-700 hover:ring-blue-500">
-                Resume
-              </button>
+              <Link href="mailto:sickmi14798@gmail.com">
+                <button className="rounded-lg bg-cyan-300 p-3 hover:text-white ">
+                  Email me
+                </button>
+              </Link>
+              <Link href="https://www.cakeresume.com/s--wHeWvC7hUtZmzal-32jraA--/angus-259cd2">
+                <button className="rounded-lg p-3 ring-2 ring-gray-800 hover:text-blue-700 hover:ring-blue-500">
+                  Resume
+                </button>
+              </Link>
             </div>
           </div>
           <div className="hidden h-80 w-80 rounded-full drop-shadow-xl md:flex">
@@ -222,8 +120,8 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
           </div>
         </section>
 
-        <section className="container mt-8 mb-12">
-          <h3 className="subTitle-text text-center text-cyan-600 md:text-start">
+        <section className="container mt-20 mb-12">
+          <h3 className="subTitle-text text-center md:text-start">
             Tools, Languages & Frameworks/Libraries
           </h3>
           <div className="mt-12 grid max-h-40 grid-cols-3 justify-items-center gap-3 overflow-y-scroll scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-cyan-600 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
@@ -240,7 +138,7 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
           </div>
         </section>
 
-        <section className="my-16 ">
+        <section className="my-20 ">
           <div className="container items-center justify-around rounded-md bg-black p-10 md:flex ">
             <h3 className="subTitle-text mb-10 text-center text-yellow-100  md:mb-0 md:w-40 md:flex-initial md:text-start">
               Interested working with me?
