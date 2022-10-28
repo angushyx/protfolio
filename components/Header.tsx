@@ -6,7 +6,11 @@ import Image from "next/image"
 import { motion as m } from "framer-motion"
 import { ModalToggle } from "../typeScript"
 
-const Header: React.FC = ({ pathName }: String) => {
+type pathName = {
+  pathName: string
+}
+
+const Header = ({ pathName }: pathName) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const handleToggle = () => {
