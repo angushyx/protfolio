@@ -76,25 +76,34 @@ export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
   return (
     // TODO:幹他媽的超級大報版
     <m.div
-      initial={!isOpen ? { opacity: 0, x: "100%", y: "-75%" } : {}}
-      animate={isOpen ? { opacity: 1, x: "0", y: "0" } : {}}
+      initial={
+        !isOpen
+          ? {
+              opacity: 0,
+              x: "100%",
+              y: "-75%",
+              position: "absolute",
+              width: "0",
+            }
+          : {}
+      }
+      animate={isOpen ? { opacity: 1, x: "0", y: "0", width: "100%" } : {}}
       transition={isOpen ? { duration: 0.4, ease: "easeOut" } : {}}
-      className={`absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden ${
-        isOpen ? "" : "hidden"
-      }`}
+      className={`} absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden`}
+      style={{ display: "none" }}
     >
       <nav className="absolute z-30 mt-24 h-full w-full text-white">
         <m.ul
-          initial={!isOpen ? { opacity: 0 } : {}}
+          initial={!isOpen ? { opacity: 0, position: "absolute" } : {}}
           animate={isOpen ? { opacity: 1 } : {}}
           transition={isOpen ? { duration: 0.8, ease: "easeOut" } : {}}
-          className={`text-3xl" h-full text-center`}
+          className={`h-full w-full text-center text-3xl`}
         >
           <Link href="/">
             <m.li
-              initial={!isOpen ? { x: "100%" } : {}}
-              animate={isOpen ? { x: "0" } : {}}
-              transition={isOpen ? { duration: 0.5, ease: "easeOut" } : {}}
+              initial={!isOpen ? { x: "-100%" } : {}}
+              animate={isOpen ? { x: "0" } : { position: "absolute" }}
+              transition={isOpen ? { duration: 1, ease: "easeOut" } : {}}
               onClick={handleToggle}
               className="my-5 cursor-pointer py-3 hover:text-cyan-500"
             >
@@ -103,10 +112,10 @@ export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
           </Link>
           <Link href="/work">
             <m.li
-              initial={!isOpen ? { x: "100%" } : {}}
-              animate={isOpen ? { x: "0" } : {}}
+              initial={!isOpen ? { x: "-100%" } : {}}
+              animate={isOpen ? { x: "0" } : { position: "absolute" }}
               transition={
-                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.1 } : {}
+                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.3 } : {}
               }
               onClick={handleToggle}
               className="my-5 cursor-pointer py-3 hover:text-cyan-500"
@@ -116,10 +125,10 @@ export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
           </Link>
           <Link href="/blogs">
             <m.li
-              initial={!isOpen ? { x: "100%" } : {}}
-              animate={isOpen ? { x: "0" } : {}}
+              initial={!isOpen ? { x: "-100%" } : {}}
+              animate={isOpen ? { x: "0" } : { position: "absolute" }}
               transition={
-                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.2 } : {}
+                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.4 } : {}
               }
               onClick={handleToggle}
               className="my-5 cursor-pointer py-3 hover:text-cyan-500"
@@ -129,10 +138,10 @@ export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
           </Link>
           <Link href="/about">
             <m.li
-              initial={!isOpen ? { x: "100%" } : {}}
-              animate={isOpen ? { x: "0" } : {}}
+              initial={!isOpen ? { x: "-100%" } : {}}
+              animate={isOpen ? { x: "0" } : { position: "absolute" }}
               transition={
-                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.3 } : {}
+                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.5 } : {}
               }
               onClick={handleToggle}
               className="my-5 cursor-pointer py-3 hover:text-cyan-500"
@@ -142,10 +151,10 @@ export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
           </Link>
           <Link href="/contact">
             <m.li
-              initial={!isOpen ? { x: "100%" } : {}}
-              animate={isOpen ? { x: "0" } : {}}
+              initial={!isOpen ? { x: "-100%" } : {}}
+              animate={isOpen ? { x: "0" } : { position: "absolute" }}
               transition={
-                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.4 } : {}
+                isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.6 } : {}
               }
               onClick={handleToggle}
               className="my-3 cursor-pointer py-3 hover:text-cyan-500"
@@ -160,3 +169,86 @@ export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
 }
 
 export default Header
+
+// <m.div
+// initial={!isOpen ? { opacity: 0, x: "100%", y: "-75%" } : {}}
+// animate={isOpen ? { opacity: 1, x: "0", y: "0" } : {}}
+// transition={isOpen ? { duration: 0.4, ease: "easeOut" } : {}}
+//     className={`absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden ${
+//       isOpen ? "" : "hidden"
+//     }`}
+//     style={{ display: "none" }}
+//   >
+//     <nav className="absolute z-30 mt-24 h-full w-full text-white">
+//       <m.ul
+// initial={!isOpen ? { opacity: 0 } : {}}
+// animate={isOpen ? { opacity: 1 } : {}}
+// transition={isOpen ? { duration: 0.8, ease: "easeOut" } : {}}
+//         className={`text-3xl" h-full text-center`}
+//       >
+//         <Link href="/">
+//           <m.li
+//             initial={!isOpen ? { x: "100%" } : {}}
+//             animate={isOpen ? { x: "0" } : {}}
+//             transition={isOpen ? { duration: 0.5, ease: "easeOut" } : {}}
+//             onClick={handleToggle}
+//             className="my-5 cursor-pointer py-3 hover:text-cyan-500"
+//           >
+//             Home
+//           </m.li>
+//         </Link>
+//         <Link href="/work">
+//           <m.li
+//             initial={!isOpen ? { x: "100%" } : {}}
+//             animate={isOpen ? { x: "0" } : {}}
+//             transition={
+//               isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.1 } : {}
+//             }
+//             onClick={handleToggle}
+//             className="my-5 cursor-pointer py-3 hover:text-cyan-500"
+//           >
+//             Work
+//           </m.li>
+//         </Link>
+//         <Link href="/blogs">
+//           <m.li
+//             initial={!isOpen ? { x: "100%" } : {}}
+//             animate={isOpen ? { x: "0" } : {}}
+//             transition={
+//               isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.2 } : {}
+//             }
+//             onClick={handleToggle}
+//             className="my-5 cursor-pointer py-3 hover:text-cyan-500"
+//           >
+//             Blogs
+//           </m.li>
+//         </Link>
+//         <Link href="/about">
+//           <m.li
+//             initial={!isOpen ? { x: "100%" } : {}}
+//             animate={isOpen ? { x: "0" } : {}}
+//             transition={
+//               isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.3 } : {}
+//             }
+//             onClick={handleToggle}
+//             className="my-5 cursor-pointer py-3 hover:text-cyan-500"
+//           >
+//             About Me
+//           </m.li>
+//         </Link>
+//         <Link href="/contact">
+//           <m.li
+//             initial={!isOpen ? { x: "100%" } : {}}
+//             animate={isOpen ? { x: "0" } : {}}
+//             transition={
+//               isOpen ? { duration: 0.5, ease: "easeOut", delay: 0.4 } : {}
+//             }
+//             onClick={handleToggle}
+//             className="my-3 cursor-pointer py-3 hover:text-cyan-500"
+//           >
+//             Contact
+//           </m.li>
+//         </Link>
+//       </m.ul>
+//     </nav>
+//   </m.div>
