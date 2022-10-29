@@ -2294,6 +2294,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tawk.to/tawk-messenger-react@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@tawk.to/tawk-messenger-react/-/tawk-messenger-react-2.0.1.tgz#2e9bbfef47f81578aa49a7cd4d72191a0c3276a4"
+  integrity sha512-jMWbeOCMwqcjLCR7a9+mh0Ce/Cl9aPyfZAvzkNKCFKBYaV9n8eAE7U/XKKFqCKfp5AehDMUCB5saG2cFSSP0Xw==
+
 "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
