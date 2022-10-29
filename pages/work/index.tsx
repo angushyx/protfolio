@@ -7,6 +7,8 @@ import { Props } from "../../typeScript"
 import Link from "next/link"
 
 const work = ({ projects }: Props) => {
+  const sliceProjects = projects.slice(0, 2)
+
   return (
     <>
       <Head>
@@ -27,8 +29,13 @@ const work = ({ projects }: Props) => {
           </Link>
         </div>
       </div>
-      <div className="column-2 my-3 flex flex-wrap sm:mx-24 md:mx-32 md:flex-row lg:mx-44">
-        {projects.slice(0, 2).map((project) => {
+      <div
+        key="work"
+        className="column-2 my-3 flex flex-wrap sm:mx-24 md:mx-32 md:flex-row lg:mx-44"
+      >
+        {sliceProjects.map((project) => {
+          console.log(project.id)
+
           return (
             <ProductCard
               key={project.id}

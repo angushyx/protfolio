@@ -6,7 +6,11 @@ import Image from "next/image"
 import { motion as m } from "framer-motion"
 import { ModalToggle } from "../typeScript"
 
-const Header = () => {
+type pathName = {
+  pathName: string
+}
+
+const Header = ({ pathName }: pathName) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const handleToggle = () => {
@@ -47,21 +51,52 @@ const Header = () => {
           </div>
           <nav className="hidden md:block">
             <ul className=" gap-6 md:flex md:text-lg ">
-              <li className="cursor-pointer hover:text-cyan-500">
+              <li
+                key="home"
+                className={`cursor-pointer hover:text-cyan-500 ${
+                  pathName === "/" ? "text-cyan-500" : ""
+                }`}
+              >
                 <Link href="/">Home</Link>
               </li>
-              <li className="cursor-pointer hover:text-cyan-500">
+              <li
+                key="work"
+                className={`cursor-pointer hover:text-cyan-500 ${
+                  pathName.includes("work") ? "text-cyan-500" : ""
+                }`}
+              >
                 <Link href="/work">Work</Link>
               </li>
 
               <Link href="/blogs">
-                <li className="cursor-pointer hover:text-cyan-500">Blogs</li>
+                <li
+                  key="blogs"
+                  className={`cursor-pointer hover:text-cyan-500 ${
+                    pathName === "/blogs" ? "text-cyan-500" : ""
+                  }`}
+                >
+                  Blogs
+                </li>
               </Link>
               <Link href="/about">
-                <li className="cursor-pointer hover:text-cyan-500">About Me</li>
+                <li
+                  key="about"
+                  className={`cursor-pointer hover:text-cyan-500 ${
+                    pathName === "/about" ? "text-cyan-500" : ""
+                  }`}
+                >
+                  About Me
+                </li>
               </Link>
               <Link href="/contact">
-                <li className="cursor-pointer hover:text-cyan-500">Contact</li>
+                <li
+                  key="contact"
+                  className={`cursor-pointer hover:text-cyan-500 ${
+                    pathName === "/contact" ? "text-cyan-500" : ""
+                  }`}
+                >
+                  Contact
+                </li>
               </Link>
             </ul>
           </nav>
