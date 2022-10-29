@@ -17,6 +17,7 @@ export interface Projects {
   githubUrl: string
   webUrl: string
   isLightMode: boolean
+  repName?: string
 }
 
 export interface ProjectsTechs {

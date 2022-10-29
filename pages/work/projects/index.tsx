@@ -5,7 +5,7 @@ import { GetStaticProps } from "next"
 import { Props } from "../../../typeScript"
 import ProductCard from "../../../components/ProductCard"
 
-const projects = ({ projects }: Props) => {
+const Projects = ({ projects }: Props) => {
   return (
     <>
       <Head>
@@ -77,4 +77,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default projects
+export default Projects
