@@ -14,6 +14,8 @@ import { GetStaticProps } from "next"
 import { Props, Techs } from "../typeScript"
 
 const Home: NextPage<Props> = ({ techs, projects }: Props) => {
+  const sliceProjects = projects.slice(0, 2)
+
   return (
     <>
       <Head>
@@ -103,7 +105,7 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
             </button>
           </div>
           <div className="column-2 mt-10 flex flex-wrap md:flex-row">
-            {projects.slice(0, 2).map((project) => {
+            {sliceProjects.map((project) => {
               return (
                 <ProductCard
                   key={project.id}
@@ -181,16 +183,13 @@ export const getStaticProps: GetStaticProps = async () => {
       techs: techs.map((tech) => ({
         name: tech.name,
         imgUrl: tech.imgUrl,
+        //!使用 MongoDB_id -> objectId 所以要使用.toString
         id: tech._id.toString(),
       })),
       projects: projects.map((project) => ({
         name: project.name,
         imgUrl: project.imgUrl,
         id: project._id.toString(),
-        // TODO:太鹹的畫把 MONGODB裡的techId改成_id
-        // techs: project.techs.map((projectTech) => ({
-        //   id: projectTech._id.toString(),
-        // })),
         techs: project.techs,
         githubUrl: project.githubUrl,
         webUrl: project.webUrl,

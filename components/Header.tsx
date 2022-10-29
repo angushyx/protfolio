@@ -52,6 +52,7 @@ const Header = ({ pathName }: pathName) => {
           <nav className="hidden md:block">
             <ul className=" gap-6 md:flex md:text-lg ">
               <li
+                key="home"
                 className={`cursor-pointer hover:text-cyan-500 ${
                   pathName === "/" ? "text-cyan-500" : ""
                 }`}
@@ -59,6 +60,7 @@ const Header = ({ pathName }: pathName) => {
                 <Link href="/">Home</Link>
               </li>
               <li
+                key="work"
                 className={`cursor-pointer hover:text-cyan-500 ${
                   pathName.includes("work") ? "text-cyan-500" : ""
                 }`}
@@ -68,6 +70,7 @@ const Header = ({ pathName }: pathName) => {
 
               <Link href="/blogs">
                 <li
+                  key="blogs"
                   className={`cursor-pointer hover:text-cyan-500 ${
                     pathName === "/blogs" ? "text-cyan-500" : ""
                   }`}
@@ -77,6 +80,7 @@ const Header = ({ pathName }: pathName) => {
               </Link>
               <Link href="/about">
                 <li
+                  key="about"
                   className={`cursor-pointer hover:text-cyan-500 ${
                     pathName === "/about" ? "text-cyan-500" : ""
                   }`}
@@ -86,6 +90,7 @@ const Header = ({ pathName }: pathName) => {
               </Link>
               <Link href="/contact">
                 <li
+                  key="contact"
                   className={`cursor-pointer hover:text-cyan-500 ${
                     pathName === "/contact" ? "text-cyan-500" : ""
                   }`}
