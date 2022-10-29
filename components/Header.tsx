@@ -108,7 +108,6 @@ const Header = ({ pathName }: pathName) => {
 
 export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
   return (
-    // TODO:幹他媽的超級大報版
     <m.div
       initial={
         !isOpen

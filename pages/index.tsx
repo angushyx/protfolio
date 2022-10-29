@@ -165,7 +165,6 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  //TODO:引用 typescript檔案來定義
   const url: string = process.env.MONGODB_URI ?? "whatever default"
 
   const client = await MongoClient.connect(url)
@@ -183,7 +182,6 @@ export const getStaticProps: GetStaticProps = async () => {
       techs: techs.map((tech) => ({
         name: tech.name,
         imgUrl: tech.imgUrl,
-        //!使用 MongoDB_id -> objectId 所以要使用.toString
         id: tech._id.toString(),
       })),
       projects: projects.map((project) => ({
