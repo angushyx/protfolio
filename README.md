@@ -3,16 +3,13 @@
 
 
 <div align="center">
-  <img width="350" src="https://i.imgur.com/Ehe9Cqg.png
-">
+  <img width="350" src="https://i.imgur.com/Ehe9Cqg.png">
 
- HANDMADE 是使用 React 框架的單頁應用（SPA）網站，整合了大台北地區手作課程的店家資訊
 </div>
  <br>
 
 
-#### 🔗Website URL: <a href="https://protfolio-pbfnzpmr8-angushyx.vercel.app/
-"><strong>Angus Portfolio</strong></a>
+#### 🔗Website URL: <a href="https://protfolio-pbfnzpmr8-angushyx.vercel.app/"><strong>Angus Portfolio</strong></a>
 
 
 
@@ -50,7 +47,7 @@
 - Git / Github
 ### 部屬方式(暫定)
 
-- [vercel](https://vercel.com/): 製作動畫
+- [vercel](https://vercel.com/)
 
 
 
