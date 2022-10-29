@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { useRouter } from "next/router"
-import TawkMessengerReact from "@tawk.to/tawk-messenger-react"
+const TawkMessengerReact = require("@tawk.to/tawk-messenger-react")
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
