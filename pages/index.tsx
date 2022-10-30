@@ -6,7 +6,7 @@ import { BsLink45Deg } from "react-icons/bs"
 import Link from "next/link"
 import { TypeAnimation } from "react-type-animation"
 import Image from "next/image"
-import avatar from "../public/avatar.jpg"
+import avatar from "../public/avatar.png"
 import ProductCard from "../components/ProductCard"
 import TechFall from "../components/TechFall"
 import { MongoClient } from "mongodb"
@@ -87,12 +87,8 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
               </Link>
             </div>
           </div>
-          <div className="hidden h-80 w-80 rounded-full drop-shadow-xl md:flex">
-            <Image
-              src={avatar}
-              alt="me"
-              className="h-80 w-80 rounded-full drop-shadow-xl"
-            />
+          <div className="hidden h-80 w-80 drop-shadow-xl md:flex">
+            <Image src={avatar} alt="me" className="h-80 w-80 drop-shadow-xl" />
           </div>
         </section>
 
