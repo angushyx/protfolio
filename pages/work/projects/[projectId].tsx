@@ -32,9 +32,9 @@ const Project = ({ projects }: Props) => {
   return (
     <div className="container">
       <h1 className="mb-16 mt-10 text-4xl ">Project Detail</h1>
-      <div className="container">
+      <section className="container mt-10 mb-20">
         <Markdown>{readme}</Markdown>
-      </div>
+      </section>
     </div>
   )
 }
