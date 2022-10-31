@@ -5,6 +5,7 @@ import { MongoClient } from "mongodb"
 import { GetStaticProps } from "next"
 import { Props } from "../../typeScript"
 import Link from "next/link"
+import { FaArrowRight } from "react-icons/fa"
 
 const work = ({ projects }: Props) => {
   const sliceProjects = projects.slice(0, 2)
@@ -23,8 +24,11 @@ const work = ({ projects }: Props) => {
         <h1 className="my-6 text-3xl">Projects</h1>
         <div className="">
           <Link href="/work/projects">
-            <button className="rounded-lg p-2 text-blue-700 ring-2 ring-blue-500">
-              View more
+            <button className="e-in-out flex items-center gap-3 rounded-lg p-2 text-blue-700  ring-2 ring-blue-500 transition duration-150  ease-in-out hover:scale-105   hover:text-blue-400 hover:ring-blue-300">
+              <span>View more</span>
+              <div>
+                <FaArrowRight />
+              </div>
             </button>
           </Link>
         </div>

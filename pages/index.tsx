@@ -74,14 +74,14 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
                 </Link>
               </ul>
             </div>
-            <div className="mt-4 flex justify-center gap-3 md:justify-start">
+            <div className="mt-4 flex justify-center gap-4 md:justify-start">
               <Link href="mailto:sickmi14798@gmail.com">
-                <button className="rounded-lg bg-cyan-300 p-3 hover:text-white ">
+                <button className="aBtn rounded-2xl text-gray-600 hover:text-blue-500 ">
                   Email me
                 </button>
               </Link>
               <Link href="https://www.cakeresume.com/s--wHeWvC7hUtZmzal-32jraA--/angus-259cd2">
-                <button className="rounded-lg p-3 ring-2 ring-gray-800 hover:text-blue-700 hover:ring-blue-500">
+                <button className="aBtn rounded-2xl bg-blue-700 text-gray-200 hover:text-white">
                   Resume
                 </button>
               </Link>
@@ -99,8 +99,7 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
         <section className=" container mt-16">
           <div className="flex items-center justify-between">
             <h3 className="subTitle-text">Recent Projects</h3>
-
-            <button className="rounded-lg p-2 ring-2 ring-black hover:text-blue-700 hover:ring-blue-500">
+            <button className="aBtn text-gray-600 hover:text-blue-500 ">
               <Link href="/work/projects">View More</Link>
             </button>
           </div>

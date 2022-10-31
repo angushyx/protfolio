@@ -16,7 +16,7 @@ const Projects = ({ projects }: Props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container mt-10">
+      <div className="container mt-10 mb-16">
         <h1 className=" text-3xl">Projects</h1>
       </div>
       <div className="column-2 mx-5 my-10 flex flex-wrap sm:mx-24 md:mx-32 md:flex-row lg:mx-40">
