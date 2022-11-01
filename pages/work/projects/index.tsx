@@ -6,7 +6,6 @@ import { Props } from "../../../typeScript"
 import ProductCard from "../../../components/ProductCard"
 
 const Projects = ({ projects }: Props) => {
-
   return (
     <>
       <Head>
@@ -65,10 +64,6 @@ export const getStaticProps: GetStaticProps = async () => {
         name: project.name,
         imgUrl: project.imgUrl,
         id: project._id.toString(),
-        // TODO:太鹹的畫把 MONGODB裡的techId改成_id
-        // techs: project.techs.map((projectTech) => ({
-        //   id: projectTech._id.toString(),
-        // })),
         techs: project.techs,
         githubUrl: project.githubUrl,
         webUrl: project.webUrl,

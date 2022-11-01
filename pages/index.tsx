@@ -13,6 +13,7 @@ import { MongoClient } from "mongodb"
 import { GetStaticProps } from "next"
 import { Props, Techs } from "../typeScript"
 
+
 const Home: NextPage<Props> = ({ techs, projects }: Props) => {
   const sliceProjects = projects.slice(0, 2)
 

@@ -34,3 +34,16 @@ export interface ModalToggle {
 export interface ProcessEnv {
   [key: string]: string | undefined
 }
+
+interface IBlogs {
+  canonical_url: string
+  social_image: string
+  created_at: string
+  description: string
+  id: number
+  reading_time_minutes: number
+  slug: string
+  title: string
+  url: string
+  public_reactions_count: number
+}

@@ -13,6 +13,8 @@ const about = () => {
     }
   )
 
+
+
   return (
     <>
       <Head>
