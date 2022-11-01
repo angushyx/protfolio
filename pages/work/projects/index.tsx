@@ -6,6 +6,7 @@ import { Props } from "../../../typeScript"
 import ProductCard from "../../../components/ProductCard"
 
 const Projects = ({ projects }: Props) => {
+
   return (
     <>
       <Head>
