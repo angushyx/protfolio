@@ -6,7 +6,6 @@ import { AiFillEye } from "react-icons/Ai"
 import { GoThumbsup } from "react-icons/Go"
 import { AiOutlineClockCircle } from "react-icons/Ai"
 
-//TODO:把東西弄弄完
 const BlogCard = ({
   id,
   canonical_url,
@@ -18,10 +17,14 @@ const BlogCard = ({
   title,
   url,
   public_reactions_count,
+  setCurrentBlogId,
 }: IBlogs) => {
   return (
     <>
-      <div className="mb-10 flex w-full cursor-pointer flex-col bg-slate-500 bg-white shadow-xl active:scale-95">
+      <div
+        onClick={() => setCurrentBlogId(id)}
+        className="mb-10 flex w-full cursor-pointer flex-col bg-slate-500 bg-white shadow-xl active:scale-95"
+      >
         <div className="xl:h-50 relative h-44 w-full md:h-36 lg:h-44 ">
           <Image
             src={social_image}
