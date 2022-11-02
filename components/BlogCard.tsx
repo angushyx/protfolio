@@ -2,9 +2,9 @@ import React from "react"
 import Image from "next/image"
 import { IBlogs } from "../typeScript"
 import moment from "moment"
-import { AiFillEye } from "react-icons/Ai"
-import { GoThumbsup } from "react-icons/Go"
-import { AiOutlineClockCircle } from "react-icons/Ai"
+import { AiFillEye } from "react-icons/ai"
+import { GoThumbsup } from "react-icons/go"
+import { AiOutlineClockCircle } from "react-icons/ai"
 
 const BlogCard = ({
   id,
