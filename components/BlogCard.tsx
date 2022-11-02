@@ -17,12 +17,12 @@ const BlogCard = ({
   title,
   url,
   public_reactions_count,
-  setCurrentBlogId,
+  handleCurrentId,
 }: IBlogs) => {
   return (
     <>
       <div
-        onClick={() => setCurrentBlogId(id)}
+        onClick={handleCurrentId}
         className="mb-10 flex w-full cursor-pointer flex-col bg-slate-500 bg-white shadow-xl active:scale-95"
       >
         <div className="xl:h-50 relative h-44 w-full md:h-36 lg:h-44 ">
@@ -36,7 +36,7 @@ const BlogCard = ({
         <div className="p-3 ">
           <p className="py-2">{moment(created_at).format("YYYY-MM-DD ")}</p>
           <h4 className="mb-3 line-clamp-2">{description}</h4>
-          <div className="border-t-2 border-indigo-500">
+          <div className="border-t-2 border-gray-700">
             <ul className="my-3 flex justify-between">
               <li className="flex items-center justify-center gap-3">
                 <AiFillEye />
