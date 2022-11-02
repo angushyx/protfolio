@@ -13,7 +13,6 @@ import { MongoClient } from "mongodb"
 import { GetStaticProps } from "next"
 import { Props, Techs } from "../typeScript"
 
-
 const Home: NextPage<Props> = ({ techs, projects }: Props) => {
   const sliceProjects = projects.slice(0, 2)
 
@@ -147,12 +146,12 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
             </h3>
             <div className="flex flex-col gap-5 md:flex-row">
               <Link href="mailto:sickmi14798@gmail.com">
-                <button className="rounded-lg bg-yellow-50 p-2 text-blue-700 ring-2 ring-blue-500">
+                <button className="rounded-lg bg-yellow-50 p-2 text-blue-700 ring-2 ring-blue-500 hover:scale-105 active:scale-95">
                   Email me
                 </button>
               </Link>
               <Link href="/work/projects">
-                <button className="rounded-lg p-2 text-blue-700 ring-2 ring-blue-500">
+                <button className="rounded-lg p-2 text-blue-700 ring-2 ring-blue-500 hover:scale-105 active:scale-95">
                   See more Projects
                 </button>
               </Link>

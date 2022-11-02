@@ -49,7 +49,7 @@ const Blogs = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="-z-10 mb-20 mt-5">
+      <section className="-z-10 mb-20 mt-5 ">
         <div className="relative h-80">
           <div className="absolute -z-20 h-full w-full  before:absolute before:top-0 before:left-0 before:z-20 before:h-full  before:w-full  before:bg-gradient-to-br before:from-black before:via-neutral-900 before:to-yellow-200 before:opacity-90 before:content-['']">
             <Image

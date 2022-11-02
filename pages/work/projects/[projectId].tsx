@@ -39,26 +39,20 @@ const Project = ({ projects }: Props) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const url: string = process.env.MONGODB_URI ?? "whatever default"
 
   const client = await MongoClient.connect(url)
   const db = client.db()
-  const techCollection = db.collection("tech")
+
   const projectCollection = db.collection("projectCard")
 
-  const techs = await techCollection.find().toArray()
   const projects = await projectCollection.find().toArray()
 
   client.close()
 
   return {
     props: {
-      techs: techs.map((tech) => ({
-        name: tech.name,
-        imgUrl: tech.imgUrl,
-        id: tech._id.toString(),
-      })),
       projects: projects.map((project) => ({
         name: project.name,
         imgUrl: project.imgUrl,

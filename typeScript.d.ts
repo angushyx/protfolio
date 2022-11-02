@@ -46,5 +46,5 @@ interface IBlogs {
   title: string
   url: string
   public_reactions_count: number
-  handleCurrentId: () => void
+  handleCurrentId?: () => void
 }

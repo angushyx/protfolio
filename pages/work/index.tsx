@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Head from "next/head"
 import ProductCard from "../../components/ProductCard"
 import { MongoClient } from "mongodb"
@@ -6,9 +6,32 @@ import { GetStaticProps } from "next"
 import { Props } from "../../typeScript"
 import Link from "next/link"
 import { FaArrowRight } from "react-icons/fa"
+import BlogCard from "../../components/BlogCard"
+import { IBlogs } from "../../typeScript"
+import axios from "axios"
 
-const work = ({ projects }: Props) => {
+const Work = ({ projects }: Props) => {
   const sliceProjects = projects.slice(0, 2)
+  const [blogs, setBlogs] = useState<IBlogs[]>([])
+
+  const getBlogData = async () => {
+    try {
+      const response = await axios.get(
+        `https://dev.to/api/articles?username=angushyx`
+      )
+      setBlogs(response.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    getBlogData()
+  }, [])
+
+  console.log(blogs)
+
+  if (!blogs) return
 
   return (
     <>
@@ -38,8 +61,6 @@ const work = ({ projects }: Props) => {
         className="column-2 my-3 flex flex-wrap sm:mx-24 md:mx-32 md:flex-row lg:mx-44"
       >
         {sliceProjects.map((project) => {
-          console.log(project.id)
-
           return (
             <ProductCard
               key={project.id}
@@ -55,9 +76,44 @@ const work = ({ projects }: Props) => {
         })}
       </div>
 
-      <div className="container mt-10">
-        <h1 className=" my-6 text-3xl">Blogs</h1>
-      </div>
+      <section className="my-10 md:my-5">
+        <div className="container">
+          <div className="flex items-center justify-between">
+            <h1 className=" my-6 text-3xl">Blogs</h1>
+            <div className="">
+              <Link href="/blogs">
+                <button className="e-in-out flex items-center gap-3 rounded-lg p-2 text-blue-700  ring-2 ring-blue-500 transition duration-150  ease-in-out hover:scale-105   hover:text-blue-400 hover:ring-blue-300">
+                  <span>View more</span>
+                  <div>
+                    <FaArrowRight />
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {blogs.slice(0, 4).map((blog) => {
+              return (
+                <>
+                  <BlogCard
+                    key={blog.id}
+                    id={blog.id}
+                    canonical_url={blog.canonical_url}
+                    social_image={blog.social_image}
+                    created_at={blog.created_at}
+                    description={blog.description}
+                    slug={blog.slug}
+                    reading_time_minutes={blog.reading_time_minutes}
+                    title={blog.title}
+                    url={blog.url}
+                    public_reactions_count={blog.public_reactions_count}
+                  />
+                </>
+              )
+            })}
+          </div>
+        </div>
+      </section>
     </>
   )
 }
@@ -100,4 +156,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default work
+export default Work
