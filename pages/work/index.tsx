@@ -92,7 +92,7 @@ const Work = ({ projects }: Props) => {
             </div>
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.slice(0, 4).map((blog) => {
+            {blogs.slice(0, 3).map((blog) => {
               return (
                 <>
                   <BlogCard
