@@ -41,7 +41,7 @@ const Work = ({ projects }: Props) => {
           name="description"
           content="Hello my name is angus. I'm a Web developer. 哈囉大家好，我是黃奕翔，是一名網頁開發工程師。"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
       <div className="container mt-10 flex items-center justify-between">
         <h1 className="my-6 text-3xl">Projects</h1>
