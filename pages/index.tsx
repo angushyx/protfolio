@@ -87,7 +87,7 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
               </Link>
             </div>
           </div>
-          <div className="hidden  h-52 w-52 rounded-full  bg-gradient-to-bl  from-blue-300 to-yellow-300 drop-shadow-2xl  md:flex md:h-80 md:w-80 lg:h-96 lg:w-96 ">
+          <div className="hidden  h-52 w-52 rounded-full  bg-gradient-to-bl  from-yellow-200 to-blue-100 drop-shadow-2xl  md:flex md:h-80 md:w-80 lg:h-96 lg:w-96 ">
             <Image
               src={avatar}
               alt="me"

@@ -96,7 +96,7 @@ const Blogs = () => {
               {currentBlog.description}
             </h2>
             <Link className="z-30" href={currentBlog.url}>
-              <button className="flex items-center items-center gap-3 rounded-lg bg-blue-700 p-2 text-white ring-2 ring-blue-500  transition duration-150 ease-in-out hover:scale-105  hover:cursor-pointer hover:ring-blue-300 active:scale-95">
+              <button className="flex items-center gap-3 rounded-lg bg-blue-700 p-2 text-white ring-2 ring-blue-500  transition duration-150 ease-in-out hover:scale-105  hover:cursor-pointer hover:ring-blue-300 active:scale-95">
                 Read Blog
                 <BsBoxArrowInUpRight />
               </button>
