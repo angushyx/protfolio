@@ -23,12 +23,14 @@ const Header = ({ pathName }: pathName) => {
       <header>
         <div className="flex h-10 items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 object-contain text-sm text-slate-50 drop-shadow-2xl sm:text-lg md:h-16 md:text-2xl">
           Open to opportunities Contact Me
-          <span className="ml-3 flex items-center gap-3 text-sm underline-offset-4 hover:cursor-pointer hover:underline md:text-2xl">
-            Click here
-            <svg className="h-3 w-3 animate-bounce md:h-6 md:w-6">
-              <FaArrowRight />
-            </svg>
-          </span>
+          <Link href="/contact">
+            <span className="ml-3 flex items-center gap-3 text-sm underline-offset-4 hover:cursor-pointer hover:underline md:text-2xl">
+              Click here
+              <svg className="h-3 w-3 animate-bounce md:h-6 md:w-6">
+                <FaArrowRight />
+              </svg>
+            </span>
+          </Link>
         </div>
         <div className="container flex items-center justify-between py-6 md:py-8">
           <div className="h-16 w-16">

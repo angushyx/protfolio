@@ -64,7 +64,7 @@ const ProductCard = ({
           </div>
           <div className="flex justify-evenly gap-3 rounded-b-lg bg-[#586a7e] p-3 text-white">
             <Link href={`/work/projects/${id}`}>
-              <p className="flex items-center gap-3  hover:cursor-pointer hover:text-gray-300">
+              <p className="flex items-center gap-3  hover:cursor-pointer hover:text-sky-300 ">
                 <span>
                   <BiDetail />
                 </span>
@@ -72,7 +72,7 @@ const ProductCard = ({
               </p>
             </Link>
             <Link href={webUrl !== "" ? webUrl : githubUrl}>
-              <p className="flex items-center gap-3  hover:cursor-pointer hover:text-gray-300">
+              <p className="flex items-center gap-3  hover:cursor-pointer hover:text-sky-300 ">
                 <span>
                   <BsEyeFill />
                 </span>

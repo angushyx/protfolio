@@ -6,7 +6,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const data = req.body
 
     const client = await MongoClient.connect(
-      "mongodb+srv://Angus:simass16600@cluster0.uz2xl.mongodb.net/portfolio?retryWrites=true&w=majority"
+      process.env.MONGODB_URI ?? "whatever default"
     )
     const db = client.db()
     const portfolioCollection = db.collection("portfolio")

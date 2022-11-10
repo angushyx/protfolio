@@ -4,10 +4,12 @@
 <div align="center">
   <img width="350" src="https://i.imgur.com/Ehe9Cqg.png">
 
+HANDMADE 是使用 React 框架的單頁應用（SPA）網站，整合了大台北地區手作課程的店家資訊
+
 </div>
  <br>
 
-#### 🔗Website URL: <a href="https://protfolio-pbfnzpmr8-angushyx.vercel.app/"><strong>Angus Portfolio</strong></a>
+#### 🔗Website URL: <a href="https://portfolio-git-develop-angushyx.vercel.app/"><strong>Angus Portfolio</strong></a>
 
 <hr>
 
@@ -28,6 +30,8 @@
 
 - [framer-motion](https://www.framer.com/motion/): 製作動畫
 - [MongoDB](https://www.mongodb.com/): noSql 資料庫
+- [react-calendly](https://www.npmjs.com/package/react-calendly): 連接 calendly
+- [tawk.to/tawk-messenger-react](https://www.mongodb.com/): 連接 tawk
 <!-- - [CKEditor](https://ckeditor.com/ckeditor-5/): 部落格新增與修改功能
 - [sweetalert2](https://sweetalert2.github.io/#input-types): 客製化 pop 訊息
 - [formik & yup ](https://formik.org/docs/guides/validation): 表單驗證
@@ -43,4 +47,4 @@
 
 ### 部屬方式(暫定)
 
-- [vercel](https://vercel.com/)
+- [vercel](https://vercel.com/): 製作動畫

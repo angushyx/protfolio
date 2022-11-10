@@ -6,7 +6,7 @@ import { BsLink45Deg } from "react-icons/bs"
 import Link from "next/link"
 import { TypeAnimation } from "react-type-animation"
 import Image from "next/image"
-import avatar from "../public/avatar.jpg"
+import avatar from "../public/avatar.png"
 import ProductCard from "../components/ProductCard"
 import TechFall from "../components/TechFall"
 import { MongoClient } from "mongodb"
@@ -24,7 +24,7 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
           name="description"
           content="Hello my name is angus. I'm a Web developer. 哈囉大家好，我是黃奕翔，是一名網頁開發工程師。"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
 
       <main className="container">
@@ -74,24 +74,24 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
                 </Link>
               </ul>
             </div>
-            <div className="mt-4 flex justify-center gap-3 md:justify-start">
+            <div className="mt-4 flex justify-center gap-4 md:justify-start">
               <Link href="mailto:sickmi14798@gmail.com">
-                <button className="rounded-lg bg-cyan-300 p-3 hover:text-white ">
+                <button className="aBtn rounded-2xl text-gray-600 hover:text-blue-500 ">
                   Email me
                 </button>
               </Link>
               <Link href="https://www.cakeresume.com/s--wHeWvC7hUtZmzal-32jraA--/angus-259cd2">
-                <button className="rounded-lg p-3 ring-2 ring-gray-800 hover:text-blue-700 hover:ring-blue-500">
+                <button className="aBtn rounded-2xl bg-blue-700 text-gray-200 hover:text-white">
                   Resume
                 </button>
               </Link>
             </div>
           </div>
-          <div className="hidden h-80 w-80 rounded-full drop-shadow-xl md:flex">
+          <div className="hidden  h-52 w-52 rounded-full  bg-gradient-to-bl  from-yellow-200 to-blue-100 drop-shadow-2xl  md:flex md:h-80 md:w-80 lg:h-96 lg:w-96 ">
             <Image
               src={avatar}
               alt="me"
-              className="h-80 w-80 rounded-full drop-shadow-xl"
+              className="z-20 h-52  w-52 rounded-3xl drop-shadow-2xl md:h-80 md:w-80 lg:h-96 lg:w-96"
             />
           </div>
         </section>
@@ -99,8 +99,7 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
         <section className=" container mt-16">
           <div className="flex items-center justify-between">
             <h3 className="subTitle-text">Recent Projects</h3>
-
-            <button className="rounded-lg p-2 ring-2 ring-black hover:text-blue-700 hover:ring-blue-500">
+            <button className="aBtn text-gray-600 hover:text-blue-500 ">
               <Link href="/work/projects">View More</Link>
             </button>
           </div>
@@ -147,12 +146,12 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
             </h3>
             <div className="flex flex-col gap-5 md:flex-row">
               <Link href="mailto:sickmi14798@gmail.com">
-                <button className="rounded-lg bg-yellow-50 p-2 text-blue-700 ring-2 ring-blue-500">
+                <button className="rounded-lg bg-yellow-50 p-2 text-blue-700 ring-2 ring-blue-500 hover:scale-105 active:scale-95">
                   Email me
                 </button>
               </Link>
               <Link href="/work/projects">
-                <button className="rounded-lg p-2 text-blue-700 ring-2 ring-blue-500">
+                <button className="rounded-lg p-2 text-blue-700 ring-2 ring-blue-500 hover:scale-105 active:scale-95">
                   See more Projects
                 </button>
               </Link>
@@ -165,7 +164,6 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  //TODO:引用 typescript檔案來定義
   const url: string = process.env.MONGODB_URI ?? "whatever default"
 
   const client = await MongoClient.connect(url)
@@ -183,7 +181,6 @@ export const getStaticProps: GetStaticProps = async () => {
       techs: techs.map((tech) => ({
         name: tech.name,
         imgUrl: tech.imgUrl,
-        //!使用 MongoDB_id -> objectId 所以要使用.toString
         id: tech._id.toString(),
       })),
       projects: projects.map((project) => ({

@@ -25,6 +25,7 @@ module.exports = {
       flexGrow: {
         "1/2": 0.5,
       },
+
       keyframes: {
         wave: {
           "0%": { transform: "rotate(0.0deg)" },
@@ -44,5 +45,5 @@ module.exports = {
       colors: {},
     },
   },
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],
 }

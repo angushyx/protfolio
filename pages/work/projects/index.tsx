@@ -5,7 +5,7 @@ import { GetStaticProps } from "next"
 import { Props } from "../../../typeScript"
 import ProductCard from "../../../components/ProductCard"
 
-const projects = ({ projects }: Props) => {
+const Projects = ({ projects }: Props) => {
   return (
     <>
       <Head>
@@ -14,9 +14,9 @@ const projects = ({ projects }: Props) => {
           name="description"
           content="Hello my name is angus. I'm a Web developer. 哈囉大家好，我是黃奕翔，是一名網頁開發工程師。"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
-      <div className="container mt-10">
+      <div className="container mt-10 mb-16">
         <h1 className=" text-3xl">Projects</h1>
       </div>
       <div className="column-2 mx-5 my-10 flex flex-wrap sm:mx-24 md:mx-32 md:flex-row lg:mx-40">
@@ -64,10 +64,6 @@ export const getStaticProps: GetStaticProps = async () => {
         name: project.name,
         imgUrl: project.imgUrl,
         id: project._id.toString(),
-        // TODO:太鹹的畫把 MONGODB裡的techId改成_id
-        // techs: project.techs.map((projectTech) => ({
-        //   id: projectTech._id.toString(),
-        // })),
         techs: project.techs,
         githubUrl: project.githubUrl,
         webUrl: project.webUrl,
@@ -77,4 +73,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default projects
+export default Projects
