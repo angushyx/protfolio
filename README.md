@@ -45,4 +45,4 @@
 
 ### 部屬方式(暫定)
 
-- [vercel](https://vercel.com/): 製作動畫
+- [vercel](https://vercel.com/)
