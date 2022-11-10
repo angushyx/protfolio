@@ -41,10 +41,11 @@ const Blogs = () => {
     return (
       <>
         <section className="-z-10 mb-20 mt-5 ">
-          <div className="relative h-80">
+          <div className="h-80">
             <Skeleton
-              className=" rounded-circle m-0 h-full w-full px-3 py-3"
+              className="rounded-circle m-0 h-full w-full"
               animation="wave"
+              height={320}
               variant="rectangular"
             />
           </div>
@@ -52,36 +53,12 @@ const Blogs = () => {
         <section className="my-20">
           <div className="container">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <Skeleton
-                className="h-64"
-                animation="wave"
-                variant="rectangular"
-              />
-              <Skeleton
-                className="h-64"
-                animation="wave"
-                variant="rectangular"
-              />
-              <Skeleton
-                className="h-64"
-                animation="wave"
-                variant="rectangular"
-              />
-              <Skeleton
-                className="h-64"
-                animation="wave"
-                variant="rectangular"
-              />
-              <Skeleton
-                className="h-64"
-                animation="wave"
-                variant="rectangular"
-              />
-              <Skeleton
-                className="h-64"
-                animation="wave"
-                variant="rectangular"
-              />
+              <Skeleton height={280} animation="wave" variant="rectangular" />{" "}
+              <Skeleton height={280} animation="wave" variant="rectangular" />{" "}
+              <Skeleton height={280} animation="wave" variant="rectangular" />
+              <Skeleton height={280} animation="wave" variant="rectangular" />
+              <Skeleton height={280} animation="wave" variant="rectangular" />
+              <Skeleton height={280} animation="wave" variant="rectangular" />
             </div>
           </div>
         </section>
