@@ -8,6 +8,7 @@ import { IBlogs } from "../../typeScript"
 import { BsBoxArrowInUpRight } from "react-icons/bs"
 import { FaDev, FaMedium } from "react-icons/fa"
 import Image from "next/image"
+import { Skeleton } from "@mui/material"
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState<IBlogs[]>([])
@@ -36,7 +37,57 @@ const Blogs = () => {
     setCurrentBlogId(id)
   }
 
-  if (!currentBlog) return
+  if (!currentBlog) {
+    return (
+      <>
+        <section className="-z-10 mb-20 mt-5 ">
+          <div className="relative h-80">
+            <Skeleton
+              className=" rounded-circle m-0 h-full w-full px-3 py-3"
+              animation="wave"
+              variant="rectangular"
+            />
+          </div>
+        </section>
+        <section className="my-20">
+          <div className="container">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <Skeleton
+                className="h-64"
+                animation="wave"
+                variant="rectangular"
+              />
+              <Skeleton
+                className="h-64"
+                animation="wave"
+                variant="rectangular"
+              />
+              <Skeleton
+                className="h-64"
+                animation="wave"
+                variant="rectangular"
+              />
+              <Skeleton
+                className="h-64"
+                animation="wave"
+                variant="rectangular"
+              />
+              <Skeleton
+                className="h-64"
+                animation="wave"
+                variant="rectangular"
+              />
+              <Skeleton
+                className="h-64"
+                animation="wave"
+                variant="rectangular"
+              />
+            </div>
+          </div>
+        </section>
+      </>
+    )
+  }
 
   return (
     <>
