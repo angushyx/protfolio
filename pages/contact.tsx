@@ -1,9 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react"
 import Head from "next/head"
 import { useFormik } from "formik"
 import * as Yup from "yup"
+import { InlineWidget } from "react-calendly"
 
-// TODO: 串GOOGLE MEET
 const Contact = () => {
   const formik = useFormik({
     initialValues: {
@@ -40,12 +41,8 @@ const Contact = () => {
         <div className="container flex flex-col py-5">
           <div className="text-center">
             <h1 className="mb-3 text-3xl md:text-4xl ">
-              d love to hear from you
+              I'd love to hear from you
             </h1>
-            <span className="text-lg md:text-xl">
-              Just a quick chat? - DM me on Twitter{" "}
-            </span>
-            <span className="text-lg md:text-xl">@angus</span>
           </div>
           <div className="flex flex-col justify-around gap-5 md:mt-16 md:mb-40 md:flex-row md:gap-8 lg:gap-0">
             <div className="my-8 md:my-0">
@@ -97,6 +94,9 @@ const Contact = () => {
             </div>
             <div className="text-center text-2xl">
               <h2>Schedule a Google Meet with me!</h2>
+              <div className="mt-4">
+                <InlineWidget url="https://calendly.com/sickmi14798?hide_landing_page_details=1&hide_gdpr_banner=1/30min" />
+              </div>
             </div>
           </div>
         </div>
