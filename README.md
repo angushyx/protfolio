@@ -4,8 +4,6 @@
 <div align="center">
   <img width="350" src="https://i.imgur.com/Ehe9Cqg.png">
 
-HANDMADE 是使用 React 框架的單頁應用（SPA）網站，整合了大台北地區手作課程的店家資訊
-
 </div>
  <br>
 
