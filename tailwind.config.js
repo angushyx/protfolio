@@ -25,6 +25,12 @@ module.exports = {
       flexGrow: {
         "1/2": 0.5,
       },
+      zIndex: {
+        9999: "9999",
+      },
+      colors: {
+        "regal-blue": "#0759854d",
+      },
 
       keyframes: {
         wave: {
@@ -41,8 +47,6 @@ module.exports = {
       animation: {
         "waving-hand": "wave 2s linear infinite",
       },
-
-      colors: {},
     },
   },
   plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],

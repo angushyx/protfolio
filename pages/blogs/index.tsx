@@ -10,7 +10,6 @@ import { FaDev, FaMedium } from "react-icons/fa"
 import Image from "next/image"
 import { Skeleton } from "@mui/material"
 
-
 const Blogs = () => {
   const [blogs, setBlogs] = useState<IBlogs[]>([])
   //todo:改道陣列裡
@@ -65,7 +64,11 @@ const Blogs = () => {
       left: 100,
       behavior: "smooth",
     })
-    console.log(id)
+  }
+
+  const [showModal, setShowModal] = useState<boolean>(false)
+  const handlePop = () => {
+    setShowModal((prev: boolean) => !prev)
   }
 
   if (!currentBlog) {
@@ -132,7 +135,7 @@ const Blogs = () => {
                 <BsBoxArrowInUpRight />
               </button>
             </Link>
-            <p className="my-3">Read this blog on your favourite platform:</p>
+            <p className="my-3">Read this blog on your favorite platform:</p>
 
             <div className="flex gap-4">
               <Link href="https://medium.com/@sickmi14798">
@@ -152,7 +155,7 @@ const Blogs = () => {
       <section className="my-20">
         <div className="container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <div className="relative">
+            <div className={`relative`}>
               {ts30.map((blog) => {
                 return (
                   <>
@@ -160,6 +163,8 @@ const Blogs = () => {
                       handleCurrentId={() => {
                         handleCurrentId(blog.id)
                       }}
+                      showModal={showModal}
+                      handlePop={handlePop}
                       isList={true}
                       key={blog.id}
                       id={blog.id}

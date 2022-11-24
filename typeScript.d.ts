@@ -35,17 +35,24 @@ export interface ProcessEnv {
   [key: string]: string | undefined
 }
 
+// TODO:確定哪幾個不用? canonical_url、slug、url
 export interface IBlogs {
-  canonical_url: string
+  canonical_url?: string
   social_image: string
   created_at: string
   description: string
   id: number
   reading_time_minutes: number
-  slug: string
+  slug?: string
   title: string
   url: string
-  isList: boolean
   public_reactions_count: number
   handleCurrentId?: () => void
+}
+
+// 用 extends 是想說也許可以不用加問號，阿現在還是要加，那有差嗎?
+export interface IBlogsList extends IBlogs {
+  showModal?: boolean
+  handlePop?: () => void
+  isList?: boolean
 }
