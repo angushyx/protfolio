@@ -36,28 +36,27 @@ const Blogs = () => {
   })
 
   //1. 如果部落格 title名子包含 typeScript30 的話，把這幾個{}推入陣列翁
-  // let ts30: any = []
-  // let others: IBlogs[] = []
-  // let newData: IBlogs[] = []
-  // for (let i = 0; i < blogs.length; i++) {
-  //   if (blogs[i].title.toLowerCase().includes("typescript 30")) {
-  //     ts30.push(blogs[i])
-  //   } else {
-  //     others.push(blogs[i])
-  //   }
-  //   newData = [ts30, ...others]
-  // }
+  let others: IBlogs[] = []
+  //TODO:為何只能用 any???
+  let ts30: any = []
+  let newData: IBlogs[] = []
+  for (let i = 0; i < blogs.length; i++) {
+    if (blogs[i].title.toLowerCase().includes("typescript 30")) {
+      ts30.push(blogs[i])
+    } else {
+      others.push(blogs[i])
+    }
+    newData = [ts30, ...others]
+  }
 
-  // console.log(newData)
+  console.log(newData)
 
-  const ts30 = blogs.filter((blog) => {
-    return blog.title.toLowerCase().includes("typescript 30")
-  })
-  const others = blogs.filter((blog) => {
-    return !blog.title.toLowerCase().includes("typescript 30")
-  })
-  console.log(ts30)
-  console.log(others)
+  // const ts30 = blogs.filter((blog) => {
+  //   return blog.title.toLowerCase().includes("typescript 30")
+  // })
+  // const others = blogs.filter((blog) => {
+  //   return !blog.title.toLowerCase().includes("typescript 30")
+  // })
 
   const handleCurrentId = (id: number) => {
     setCurrentBlogId(id)
@@ -153,11 +152,11 @@ const Blogs = () => {
       <section className="my-20">
         <div className="container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {ts30.map((blog) => {
+            {/* {ts30.map((blog) => {
               return (
                 <>
                   <BlogCard
-                    handleCurrentId ={() => {
+                    handleCurrentId={() => {
                       handleCurrentId(blog.id)
                     }}
                     key={blog.id}
@@ -174,9 +173,10 @@ const Blogs = () => {
                   />
                 </>
               )
-            })}
+            })} */}
 
-            {others.map((blog) => {
+            {newData.map((blog) => {
+              Array.isArray(blog) ? <div>123</div> : <div>463</div>
               return (
                 <>
                   <BlogCard
