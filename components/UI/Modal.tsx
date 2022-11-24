@@ -6,7 +6,6 @@ interface IProps {
 }
 
 const Modal = ({ children, handlePop }: IProps) => {
-  console.log(children)
   return (
     <div
       onClick={handlePop}

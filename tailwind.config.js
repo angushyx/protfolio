@@ -47,6 +47,9 @@ module.exports = {
       animation: {
         "waving-hand": "wave 2s linear infinite",
       },
+      skew: {
+        8: "8deg",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],

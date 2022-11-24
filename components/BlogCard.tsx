@@ -27,23 +27,25 @@ const BlogCard = ({
 }: IBlogsList) => {
   if (isList) {
     const isDayOne = title.includes("Day 1")
-
+    console.log(title)
     return (
       <>
         {/* TODO:這裡用不到 url */}
         {showModal && (
           <Modal handlePop={handlePop}>
-            <ModalContent
-              id={id}
-              url={url}
-              handleCurrentId={handleCurrentId}
-              social_image={social_image}
-              title={title}
-              created_at={created_at}
-              description={description}
-              public_reactions_count={public_reactions_count}
-              reading_time_minutes={reading_time_minutes}
-            />
+            <div className="transform-3d my-32 mx-auto flex w-11/12">
+              <ModalContent
+                id={id}
+                url={url}
+                handleCurrentId={handleCurrentId}
+                social_image={social_image}
+                title={title}
+                created_at={created_at}
+                description={description}
+                public_reactions_count={public_reactions_count}
+                reading_time_minutes={reading_time_minutes}
+              />
+            </div>
           </Modal>
         )}
 
@@ -51,7 +53,7 @@ const BlogCard = ({
           onClick={handlePop}
           className={`${
             isDayOne && "absolute -top-2 -left-2"
-          } active:scale-95" } mb-10 flex w-full  flex-1 cursor-pointer flex-col bg-white
+          } active:scale-95" mb-10 flex w-full flex-1 cursor-pointer flex-col bg-white
           shadow-xl`}
         >
           <div className="xl:h-50 relative h-44 w-full md:h-36 lg:h-44 ">
