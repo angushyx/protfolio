@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Image from "next/image"
 import { IBlogs } from "../typeScript"
 import moment from "moment"
 import { AiFillEye } from "react-icons/ai"
 import { GoThumbsup } from "react-icons/go"
 import { AiOutlineClockCircle } from "react-icons/ai"
-import axios from "axios"
+// import axios from "axios"
+// , { useState, useEffect }
 
 const BlogCard = ({
   id,

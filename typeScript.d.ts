@@ -35,7 +35,7 @@ export interface ProcessEnv {
   [key: string]: string | undefined
 }
 
-interface IBlogs {
+export interface IBlogs {
   canonical_url: string
   social_image: string
   created_at: string
