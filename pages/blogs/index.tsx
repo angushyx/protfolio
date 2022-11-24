@@ -12,6 +12,8 @@ import { Skeleton } from "@mui/material"
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState<IBlogs[]>([])
+  //todo:改道陣列裡
+  const [newBlogs, setNewBlogs] = useState<IBlogs[]>([])
 
   const [currentBlogId, setCurrentBlogId] = useState<number>()
 
@@ -33,8 +35,30 @@ const Blogs = () => {
     return currentBlog.id === currentBlogId
   })
 
+  //1. 如果部落格 title名子包含 typeScript30 的話，把這幾個{}推入陣列翁
+  let ts30: any = []
+  let others: IBlogs[] = []
+  let newData: IBlogs[] = []
+  for (let i = 0; i < blogs.length; i++) {
+    if (blogs[i].title.toLowerCase().includes("typescript 30")) {
+      ts30.push(blogs[i])
+    } else {
+      others.push(blogs[i])
+    }
+    newData = [ts30, ...others]
+  }
+  useEffect(() => {
+    setNewBlogs(newData)
+  }, [])
+
   const handleCurrentId = (id: number) => {
     setCurrentBlogId(id)
+    window.scrollTo({
+      top: 100,
+      left: 100,
+      behavior: "smooth",
+    })
+    console.log(id)
   }
 
   if (!currentBlog) {
@@ -121,27 +145,33 @@ const Blogs = () => {
       <section className="my-20">
         <div className="container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((blog) => {
-              return (
-                <>
-                  <BlogCard
-                    handleCurrentId={() => {
-                      handleCurrentId(blog.id)
-                    }}
-                    key={blog.id}
-                    id={blog.id}
-                    canonical_url={blog.canonical_url}
-                    social_image={blog.social_image}
-                    created_at={blog.created_at}
-                    description={blog.description}
-                    slug={blog.slug}
-                    reading_time_minutes={blog.reading_time_minutes}
-                    title={blog.title}
-                    url={blog.url}
-                    public_reactions_count={blog.public_reactions_count}
-                  />
-                </>
-              )
+            {newBlogs.map((blog) => {
+              if (Array.isArray(blog) === true) {
+                blog.map((v) => {
+                  return <div key={v.id}>{v.title}</div>
+                })
+              } else {
+                return (
+                  <>
+                    <BlogCard
+                      handleCurrentId={() => {
+                        handleCurrentId(blog.id)
+                      }}
+                      key={blog.id}
+                      id={blog.id}
+                      canonical_url={blog.canonical_url}
+                      social_image={blog.social_image}
+                      created_at={blog.created_at}
+                      description={blog.description}
+                      slug={blog.slug}
+                      reading_time_minutes={blog.reading_time_minutes}
+                      title={blog.title}
+                      url={blog.url}
+                      public_reactions_count={blog.public_reactions_count}
+                    />
+                  </>
+                )
+              }
             })}
           </div>
         </div>
