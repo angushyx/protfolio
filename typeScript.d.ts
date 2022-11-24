@@ -45,6 +45,7 @@ export interface IBlogs {
   slug: string
   title: string
   url: string
+  isList: boolean
   public_reactions_count: number
   handleCurrentId?: () => void
 }
