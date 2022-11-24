@@ -5,6 +5,7 @@ import moment from "moment"
 import { AiFillEye } from "react-icons/ai"
 import { GoThumbsup } from "react-icons/go"
 import { AiOutlineClockCircle } from "react-icons/ai"
+import { gsap } from "gsap";
 
 const BlogCard = ({
   id,
