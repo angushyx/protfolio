@@ -27,6 +27,8 @@ module.exports = {
       },
       zIndex: {
         9999: "9999",
+        9998: "9998",
+        9997: "9997",
       },
       colors: {
         "regal-blue": "#0759854d",

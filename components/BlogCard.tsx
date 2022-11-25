@@ -33,7 +33,7 @@ const BlogCard = ({
         {/* TODO:這裡用不到 url */}
         {showModal && (
           <Modal showModal={showModal} handlePop={handlePop}>
-            <div className="transform-3d my-20 mx-auto flex w-11/12">
+            <div className="transform-3d px-3 md:px-0 my-28 mx-auto flex w-full md:p-0 lg:my-32 xl:my-48">
               <ModalContent
                 id={id}
                 showModal={showModal}
