@@ -7,7 +7,7 @@
 </div>
  <br>
 
-#### 🔗Website URL: <a href="https://portfolio-angushyx.vercel.app/blogs"><strong>Angus Portfolio</strong></a>
+#### 🔗Website URL: <a href="https://portfolio-angushyx.vercel.app"><strong>Angus Portfolio</strong></a>
 
 <hr>
 
