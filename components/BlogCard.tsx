@@ -27,13 +27,13 @@ const BlogCard = ({
 }: IBlogsList) => {
   if (isList) {
     const isDayOne = title.includes("Day 1")
-    console.log(title)
+
     return (
       <>
         {/* TODO:這裡用不到 url */}
         {showModal && (
           <Modal showModal={showModal} handlePop={handlePop}>
-            <div className="transform-3d px-3 md:px-0 my-28 mx-auto flex w-full md:p-0 lg:my-32 xl:my-48">
+            <div className="transform-3d my-28 mx-auto flex w-full px-3 md:p-0 md:px-0 lg:my-32 xl:my-48">
               <ModalContent
                 id={id}
                 showModal={showModal}
@@ -53,7 +53,7 @@ const BlogCard = ({
         <div
           onClick={handlePop}
           className={`${
-            isDayOne && "absolute -top-2 -left-2"
+            isDayOne ? "relative z-20 " : "absolute top-2 left-2"
           } active:scale-95" mb-10 flex w-full flex-1 cursor-pointer flex-col bg-white
           shadow-xl`}
         >

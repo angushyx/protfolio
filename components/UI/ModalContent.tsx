@@ -19,6 +19,8 @@ const ModalContent = ({
   showModal,
   reading_time_minutes,
 }: IBlogsList) => {
+  //!currentIndex 用 useState紀錄
+
   //todo:把它處理掉
   // function template({ skew, translateX, translateY, scaleY, scaleX }: any) {
   //   return `skew(${skew}) translateX(${translateX}) translateY(${translateY}) scaleY(${scaleY}) scaleX(${scaleX})`
