@@ -25,7 +25,7 @@ const about = () => {
       </Head>
 
       <div className="container">
-        <section className=" border-b-2 md:flex ">
+        <section className=" border-b-2 pb-4 md:flex">
           <div className="my-7 mx-auto flex h-52  w-52 rounded-full  bg-gradient-to-bl  from-blue-300 to-yellow-300 drop-shadow-2xl md:flex md:h-80 md:w-80 lg:h-96 lg:w-96 ">
             <Image
               src={avatar}
@@ -70,7 +70,7 @@ const about = () => {
             </div>
             <div className="justify-self-end">
               <h3 className="my-3">Follow me on</h3>
-              <ul className="flex gap-4 text-3xl md:items-center">
+              <ul className="flex justify-center gap-4 text-3xl md:items-center">
                 <Link href="https://github.com/angushyx">
                   <li className="hover:cursor-pointer hover:text-gray-600">
                     <FaGithub />
