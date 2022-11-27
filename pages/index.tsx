@@ -19,10 +19,14 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
   return (
     <>
       <Head>
-        <title>Angus Portfolio</title>
+        <title>
+          Angus 個人網站 - | 網站設計 | 台中網頁 | 網頁開發 | 台北網頁設計 |
+          預約會議
+        </title>
+
         <meta
           name="description"
-          content="Hello my name is angus. I'm a Web developer. 哈囉大家好，我是黃奕翔，是一名網頁開發工程師。"
+          content="哈囉大家好，我是黃奕翔，一名網頁開發工程師, 提供各種客製化服務，網站設計、網頁設計、程式設計, 一條龍規劃整合您的需求，配合您的商業模式，獨創您的企業風采，台北網頁設計、台中網頁設計、全台灣皆有服務。"
         />
         <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
