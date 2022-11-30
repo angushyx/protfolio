@@ -75,8 +75,8 @@ const Blogs = () => {
         <section className="my-20">
           <div className="container">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <Skeleton height={280} animation="wave" variant="rectangular" />{" "}
-              <Skeleton height={280} animation="wave" variant="rectangular" />{" "}
+              <Skeleton height={280} animation="wave" variant="rectangular" />
+              <Skeleton height={280} animation="wave" variant="rectangular" />
               <Skeleton height={280} animation="wave" variant="rectangular" />
               <Skeleton height={280} animation="wave" variant="rectangular" />
               <Skeleton height={280} animation="wave" variant="rectangular" />
@@ -162,6 +162,7 @@ const Blogs = () => {
                         return (
                           <>
                             <ModalContent
+                              key={ts.id}
                               handleCurrentId={() => {
                                 handleCurrentId(ts.id)
                               }}
@@ -188,6 +189,7 @@ const Blogs = () => {
                 return (
                   <>
                     <div
+                      key={blog.id}
                       onClick={handlePop}
                       className={`${
                         isDayOne ? "relative -top-2 -left-2 z-20" : "absolute "

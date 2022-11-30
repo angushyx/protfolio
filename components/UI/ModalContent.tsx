@@ -21,16 +21,14 @@ const ModalContent = ({
   reading_time_minutes,
 }: IBlogsList) => {
   // const [currentIndex, setCurrentIndex] = useState<number>(1)
-  console.log(title)
   //!currentIndex 用 useState紀錄
 
   return (
     <>
       {/* 一 */}
       <div
-        key={id}
         onClick={handleCurrentId}
-        className={`carousel-${index} mx-auto bg-white shadow-xl`}
+        className={`carousel-${index?.toString()} mx-auto bg-white shadow-xl`}
       >
         <div className="xl:h-50 relative h-44 w-full md:h-36 lg:h-44">
           <Image
