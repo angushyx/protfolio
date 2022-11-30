@@ -36,7 +36,8 @@ const Blogs = () => {
   })
 
   //1. 如果部落格 title名子包含 typeScript30 的話，把這幾個{}推入陣列翁
-  //  let others: IBlogs[] = []
+  //TODO:為何解構後型別沒有錯誤，沒解構時就錯了?
+  // let others: IBlogs[] = []
   // let ts30: IBlogs[] = []
   // let newData: IBlogs[] = []
   // for (let i = 0; i < blogs.length; i++) {
@@ -120,6 +121,7 @@ const Blogs = () => {
       </Head>
 
       <section className="-z-10 mb-20 mt-5 ">
+        {/* todo: */}
         <div className="relative h-80">
           <div className="absolute -z-20 h-full w-full  before:absolute before:top-0 before:left-0 before:z-20 before:h-full  before:w-full  before:bg-gradient-to-br before:from-black before:via-neutral-900 before:to-yellow-200 before:opacity-90 before:content-['']">
             <Image

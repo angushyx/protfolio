@@ -124,7 +124,7 @@ export const Modal = ({ isOpen, handleToggle }: ModalToggle) => {
       }
       animate={isOpen ? { opacity: 1, x: "0", y: "0", width: "100%" } : {}}
       transition={isOpen ? { duration: 0.4, ease: "easeOut" } : {}}
-      className={`} absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden`}
+      className={`absolute z-20 h-screen w-screen bg-gradient-to-tr from-yellow-400 to-amber-600 md:hidden`}
       style={{ display: "none" }}
     >
       <nav className="absolute z-30 mt-24 h-full w-full text-white">
