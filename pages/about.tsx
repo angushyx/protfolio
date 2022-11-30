@@ -17,10 +17,19 @@ const about = () => {
     <>
       <Head>
         <title>Angus work</title>
+         <title>
+          Angus 個人網站 - | 網站設計 | 台中網頁 | 網頁開發 | 台北網頁設計 |
+          預約會議
+        </title>
         <meta
           name="description"
-          content="Hello my name is angus. I'm a Web developer. 哈囉大家好，我是黃奕翔，是一名網頁開發工程師。"
+          content="哈囉大家好，我是黃奕翔，一名網頁開發工程師, 提供各種客製化服務，網站設計、網頁設計、程式設計, 一條龍規劃整合您的需求，配合您的商業模式，獨創您的企業風采，台北網頁設計、台中網頁設計、全台灣皆有服務。"
         />
+        <meta
+          name="keywords"
+          content="Angus,Angushyx,黃奕翔,網頁開發工程師,前端工程師,網頁前端, 網頁設計,台中網頁設計,網站設計,網站架設,網頁製作,架設網站,網站設計公司,客製化網站,架站,客製網站,程式設計公司"
+        />
+        <base href="https://www.angushyx.co/" />
         <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
 
