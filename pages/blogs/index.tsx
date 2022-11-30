@@ -9,6 +9,12 @@ import { BsBoxArrowInUpRight } from "react-icons/bs"
 import { FaDev, FaMedium } from "react-icons/fa"
 import Image from "next/image"
 import { Skeleton } from "@mui/material"
+import Modal from "../../components/UI/Modal"
+import ModalContent from "../../components/UI/ModalContent"
+import moment from "moment"
+import { AiFillEye } from "react-icons/ai"
+import { GoThumbsup } from "react-icons/go"
+import { AiOutlineClockCircle } from "react-icons/ai"
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState<IBlogs[]>([])
@@ -142,32 +148,77 @@ const Blogs = () => {
           </div>
         </div>
       </section>
+
       <section className="my-20">
         <div className="container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className={`relative`}>
               {ts30.map((blog) => {
+                const isDayOne = blog.title.includes("Day 1")
+
                 return (
                   <>
-                    <BlogCard
-                      handleCurrentId={() => {
-                        handleCurrentId(blog.id)
-                      }}
-                      showModal={showModal}
-                      handlePop={handlePop}
-                      isList={true}
-                      key={blog.id}
-                      id={blog.id}
-                      canonical_url={blog.canonical_url}
-                      social_image={blog.social_image}
-                      created_at={blog.created_at}
-                      description={blog.description}
-                      slug={blog.slug}
-                      reading_time_minutes={blog.reading_time_minutes}
-                      title={blog.title}
-                      url={blog.url}
-                      public_reactions_count={blog.public_reactions_count}
-                    />
+                    {showModal && (
+                      <Modal showModal={showModal} handlePop={handlePop}>
+                        <div className="transform-3d my-28 mx-auto flex w-full px-3 md:p-0 md:px-0 lg:my-32 xl:my-48">
+                          <ModalContent
+                            handleCurrentId={() => {
+                              handleCurrentId(blog.id)
+                            }}
+                            id={blog.id}
+                            showModal={showModal}
+                            url={blog.url}
+                            social_image={blog.social_image}
+                            title={blog.title}
+                            created_at={blog.created_at}
+                            description={blog.description}
+                            public_reactions_count={blog.public_reactions_count}
+                            reading_time_minutes={blog.reading_time_minutes}
+                          />
+                        </div>
+                      </Modal>
+                    )}
+
+                    <div
+                      onClick={handlePop}
+                      className={`${
+                        isDayOne ? "relative z-20 " : "absolute top-2 left-2"
+                      } active:scale-95" mb-10 flex w-full flex-1 cursor-pointer flex-col bg-white
+          shadow-xl`}
+                    >
+                      <div className="xl:h-50 relative h-44 w-full md:h-36 lg:h-44 ">
+                        <Image
+                          src={blog.social_image}
+                          alt={blog.title}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </div>
+                      <div className="p-3 ">
+                        <p className="py-2">
+                          {moment(blog.created_at).format("YYYY-MM-DD")}
+                        </p>
+                        <h4 className="mb-3 line-clamp-2">
+                          {blog.description}
+                        </h4>
+                        <div className="border-t-2 border-gray-700">
+                          <ul className="my-3 flex justify-between">
+                            <li className="flex items-center justify-center gap-3">
+                              <AiFillEye />
+                              {blog.public_reactions_count}
+                            </li>
+                            <li className="flex items-center justify-center gap-3">
+                              <GoThumbsup />
+                              {blog.public_reactions_count}
+                            </li>
+                            <li className="flex items-center justify-center gap-3">
+                              <AiOutlineClockCircle />
+                              {blog.reading_time_minutes} min
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </>
                 )
               })}
