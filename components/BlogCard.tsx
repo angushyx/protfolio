@@ -66,7 +66,7 @@ const BlogCard = ({
             />
           </div>
           <div className="p-3 ">
-            <p className="py-2">{moment(created_at).format("YYYY-MM-DD ")}</p>
+            <p className="py-2">{moment(created_at).format("YYYY-MM-DD")}</p>
             <h4 className="mb-3 line-clamp-2">{description}</h4>
             <div className="border-t-2 border-gray-700">
               <ul className="my-3 flex justify-between">
