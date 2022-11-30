@@ -55,4 +55,5 @@ export interface IBlogsList extends IBlogs {
   showModal?: boolean
   handlePop?: () => void
   isList?: boolean
+  index?: number
 }

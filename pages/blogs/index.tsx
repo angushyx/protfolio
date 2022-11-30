@@ -148,41 +148,49 @@ const Blogs = () => {
           </div>
         </div>
       </section>
-
       <section className="my-20">
         <div className="container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className={`relative`}>
+              {showModal && (
+                <Modal showModal={showModal} handlePop={handlePop}>
+                  <div className="transform-3d my-28 mx-auto flex w-full px-3 md:p-0 md:px-0 lg:my-32 xl:my-48">
+                    {ts30
+                      .reverse()
+                      .slice(0, 5)
+                      .map((ts) => {
+                        return (
+                          <>
+                            <ModalContent
+                              handleCurrentId={() => {
+                                handleCurrentId(ts.id)
+                              }}
+                              index={ts30.indexOf(ts) + 1}
+                              id={ts.id}
+                              showModal={showModal}
+                              url={ts.url}
+                              social_image={ts.social_image}
+                              title={ts.title}
+                              created_at={ts.created_at}
+                              description={ts.description}
+                              public_reactions_count={ts.public_reactions_count}
+                              reading_time_minutes={ts.reading_time_minutes}
+                            />
+                          </>
+                        )
+                      })}
+                  </div>
+                </Modal>
+              )}
+
               {ts30.map((blog) => {
                 const isDayOne = blog.title.includes("Day 1")
-
                 return (
                   <>
-                    {showModal && (
-                      <Modal showModal={showModal} handlePop={handlePop}>
-                        <div className="transform-3d my-28 mx-auto flex w-full px-3 md:p-0 md:px-0 lg:my-32 xl:my-48">
-                          <ModalContent
-                            handleCurrentId={() => {
-                              handleCurrentId(blog.id)
-                            }}
-                            id={blog.id}
-                            showModal={showModal}
-                            url={blog.url}
-                            social_image={blog.social_image}
-                            title={blog.title}
-                            created_at={blog.created_at}
-                            description={blog.description}
-                            public_reactions_count={blog.public_reactions_count}
-                            reading_time_minutes={blog.reading_time_minutes}
-                          />
-                        </div>
-                      </Modal>
-                    )}
-
                     <div
                       onClick={handlePop}
                       className={`${
-                        isDayOne ? "relative z-20 " : "absolute top-2 left-2"
+                        isDayOne ? "relative -top-2 -left-2 z-20" : "absolute "
                       } active:scale-95" mb-10 flex w-full flex-1 cursor-pointer flex-col bg-white
           shadow-xl`}
                     >
