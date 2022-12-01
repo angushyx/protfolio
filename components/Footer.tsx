@@ -1,9 +1,27 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { FaGithub, FaMedium } from "react-icons/fa"
 import Link from "next/link"
+import axios from "axios"
 
 const Footer = () => {
+  const [visits, setVisits] = useState<number | null>(null)
+
+  const getVisitData = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.countapi.xyz/hit/angushyx.co/`
+      )
+
+      setVisits(response.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  useEffect(() => {
+    getVisitData()
+  }, [])
+
   return (
     <footer className=" bg-[#112A46]">
       <div className="container text-white">
@@ -11,7 +29,7 @@ const Footer = () => {
           <div>
             <h2 className="mb-2 text-3xl">Let's Connect</h2>
             <p className="mb-2 text-lg">
-              Visits: <span>瀏覽頁面人數</span>
+              Visits: <span>{visits}</span>
             </p>
           </div>
           <ul className="flex gap-4 text-3xl md:items-center">
