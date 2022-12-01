@@ -12,7 +12,6 @@ const Footer = () => {
       const response = await axios.get(
         `https://api.countapi.xyz/hit/angushyx.co/`
       )
-
       setVisits(response.data.value)
     } catch (err) {
       console.log(err)
