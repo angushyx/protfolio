@@ -20,14 +20,7 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState<IBlogs[]>([])
   const [currentBlogId, setCurrentBlogId] = useState<number>()
   const [isScrolled, setIsScrolled] = useState<boolean>(false)
-
-  const handleScroll = () => {
-    if (window.scrollY >= 200) {
-      setIsScrolled(true)
-    } else {
-      setIsScrolled(false)
-    }
-  }
+  const [showModal, setShowModal] = useState<boolean>(false)
 
   const getBlogData = async () => {
     try {
@@ -40,11 +33,7 @@ const Blogs = () => {
       console.log(err)
     }
   }
-  useEffect(() => {
-    getBlogData()
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+
   const [currentBlog] = blogs.filter((currentBlog) => {
     return currentBlog.id === currentBlogId
   })
@@ -56,14 +45,26 @@ const Blogs = () => {
     return !blog.title.toLowerCase().includes("typescript 30")
   })
 
+  const handleScroll = () => {
+    if (window.scrollY >= 200) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+  }
   const handleCurrentId = (id: number) => {
     setCurrentBlogId(id)
   }
 
-  const [showModal, setShowModal] = useState<boolean>(false)
   const handlePop = () => {
     setShowModal((prev: boolean) => !prev)
   }
+
+  useEffect(() => {
+    getBlogData()
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   if (!currentBlog) {
     return (
@@ -116,7 +117,7 @@ const Blogs = () => {
       <section className="-z-10 mb-20 ">
         <div
           className={`${
-            isScrolled ? "fixed top-0 z-50 md:h-64  w-full" : "relative"
+            isScrolled ? "fixed top-0 z-50 w-full md:h-64" : "relative"
           } h-84 `}
         >
           <div className="absolute -z-20 h-full w-full  before:absolute before:top-0 before:left-0 before:z-20 before:h-full  before:w-full  before:bg-gradient-to-br before:from-black before:via-neutral-900 before:to-yellow-200 before:opacity-90 before:content-['']">

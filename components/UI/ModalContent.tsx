@@ -16,19 +16,39 @@ const ModalContent = ({
   created_at,
   description,
   public_reactions_count,
-  showModal,
   index,
   reading_time_minutes,
 }: IBlogsList) => {
   // const [currentIndex, setCurrentIndex] = useState<number>(1)
-  //!currentIndex 用 useState紀錄
+  let carousel: string = ""
+
+  switch (index) {
+    case 1:
+      carousel = `z-9997 hidden lg:block md:w-64 lg:w-72 translate-x-52 translate-y-20 -skew-y-12 scale-x-75 scale-y-90 opacity-40`
+      break
+    case 2:
+      carousel = `z-9998 w-32 md:w-64 lg:w-72  translate-y-4 md:translate-x-16 md:translate-y-7 -skew-y-8 md:scale-x-90 md:scale-y-95  opacity-80`
+      break
+    case 3:
+      carousel = `z-9999 md:w-72 lg:w-96 lg:-translate-y-1`
+      break
+    case 4:
+      carousel = `z-9998 w-32 md:w-64 lg:w-72 translate-y-4 md:translate-y-7 md:-translate-x-16 skew-y-8  md:scale-x-90  md:scale-y-95  opacity-80`
+      break
+    case 5:
+      carousel = `z-9997 hidden lg:block md:w-64 lg:w-72 -translate-x-52  translate-y-20 skew-y-12 scale-y-90 scale-x-75  opacity-40`
+      break
+
+    default:
+      break
+  }
 
   return (
     <>
       {/* 一 */}
       <div
         onClick={handleCurrentId}
-        className={`carousel-${index?.toString()} mx-auto bg-white shadow-xl`}
+        className={`${carousel} mx-auto bg-white shadow-xl`}
       >
         <div className="xl:h-50 relative h-44 w-full md:h-36 lg:h-44">
           <Image

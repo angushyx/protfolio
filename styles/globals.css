@@ -18,22 +18,10 @@
   .subTitle-text {
     @apply text-2xl sm:text-3xl;
   }
-  .carousel-1{
-    @apply z-9997 hidden lg:block md:w-64 lg:w-72 translate-x-52 translate-y-20 -skew-y-12 scale-x-75 scale-y-90 opacity-40;
-  }
-  .carousel-2{
-    @apply z-9998 w-32 md:w-64 lg:w-72  translate-y-4 md:translate-x-16 md:translate-y-7 -skew-y-8 md:scale-x-90 md:scale-y-95  opacity-80;
-  }
-  .carousel-3{
-    @apply z-9999 md:w-72 lg:w-96 lg:-translate-y-1;
-  }
-  .carousel-4{
-    @apply z-9998 w-32 md:w-64 lg:w-72 translate-y-4 md:translate-y-7 md:-translate-x-16 skew-y-8  md:scale-x-90  md:scale-y-95  opacity-80;
-  }
-  .carousel-5{
-    @apply z-9997 hidden lg:block md:w-64 lg:w-72 -translate-x-52  translate-y-20 skew-y-12 scale-y-90 scale-x-75  opacity-40;
-  }
+
 }
+
+
 
 ::selection {
   background: #fcd34d;
