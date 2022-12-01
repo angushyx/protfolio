@@ -19,7 +19,6 @@ const ModalContent = ({
   index,
   reading_time_minutes,
 }: IBlogsList) => {
-  // const [currentIndex, setCurrentIndex] = useState<number>(1)
   let carousel: string = ""
 
   switch (index) {
