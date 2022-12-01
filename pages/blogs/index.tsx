@@ -19,6 +19,15 @@ import { AiOutlineClockCircle } from "react-icons/ai"
 const Blogs = () => {
   const [blogs, setBlogs] = useState<IBlogs[]>([])
   const [currentBlogId, setCurrentBlogId] = useState<number>()
+  const [isScrolled, setIsScrolled] = useState<boolean>(false)
+
+  const handleScroll = () => {
+    if (window.scrollY >= 200) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+  }
 
   const getBlogData = async () => {
     try {
@@ -33,6 +42,8 @@ const Blogs = () => {
   }
   useEffect(() => {
     getBlogData()
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
   const [currentBlog] = blogs.filter((currentBlog) => {
     return currentBlog.id === currentBlogId
@@ -47,11 +58,6 @@ const Blogs = () => {
 
   const handleCurrentId = (id: number) => {
     setCurrentBlogId(id)
-    window.scrollTo({
-      top: 100,
-      left: 100,
-      behavior: "smooth",
-    })
   }
 
   const [showModal, setShowModal] = useState<boolean>(false)
@@ -107,8 +113,12 @@ const Blogs = () => {
         <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
 
-      <section className="-z-10 mb-20 mt-5 ">
-        <div className="relative h-80">
+      <section className="-z-10 mb-20 ">
+        <div
+          className={`${
+            isScrolled ? "fixed top-0 z-50 md:h-64  w-full" : "relative"
+          } h-84 `}
+        >
           <div className="absolute -z-20 h-full w-full  before:absolute before:top-0 before:left-0 before:z-20 before:h-full  before:w-full  before:bg-gradient-to-br before:from-black before:via-neutral-900 before:to-yellow-200 before:opacity-90 before:content-['']">
             <Image
               src={currentBlog.social_image}
@@ -118,11 +128,15 @@ const Blogs = () => {
               className="-z-30  "
             />
           </div>
-          <div className="p-8 text-white">
+          <div className={`${isScrolled ? "p-4" : "p-8"} text-white`}>
             <h1 className="text-xl md:text-2xl lg:text-3xl">
               {currentBlog.title}
             </h1>
-            <h2 className="text-md my-3 sm:my-5 md:w-2/3 md:text-xl lg:my-8 xl:w-1/2">
+            <h2
+              className={`text-md my-3 sm:my-5 md:w-2/3 md:text-xl ${
+                isScrolled ? "lg:my-3" : "lg:my-8"
+              } xl:w-1/2`}
+            >
               {currentBlog.description}
             </h2>
             <Link className="z-30" href={currentBlog.url}>
@@ -148,7 +162,7 @@ const Blogs = () => {
           </div>
         </div>
       </section>
-      <section className="my-20">
+      <section className={isScrolled ? "mb-20 mt-80" : "my-20"}>
         <div className="container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className={`relative`}>
