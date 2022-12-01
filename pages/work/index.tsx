@@ -48,7 +48,7 @@ const Work = ({ projects }: Props) => {
           name="keywords"
           content="Angus,Angushyx,黃奕翔,網頁開發工程師,前端工程師,網頁前端, 網頁設計,台中網頁設計,網站設計,網站架設,網頁製作,架設網站,網站設計公司,客製化網站,架站,客製網站,程式設計公司"
         />
-        <base href="https://www.angushyx.co/" />
+
         <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
       <div className="container mt-10 flex items-center justify-between">

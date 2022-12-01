@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { NextPage } from "next"
-
 import Head from "next/head"
 import { FaGithub, FaMediumM } from "react-icons/fa"
 import { BsLink45Deg } from "react-icons/bs"
@@ -13,6 +12,7 @@ import TechFall from "../components/TechFall"
 import { MongoClient } from "mongodb"
 import { GetStaticProps } from "next"
 import { Props, Techs } from "../typeScript"
+import Script from "next/script"
 
 const Home: NextPage<Props> = ({ techs, projects }: Props) => {
   const sliceProjects = projects.slice(0, 2)
@@ -32,10 +32,23 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
           name="keywords"
           content="Angus,Angushyx,黃奕翔,網頁開發工程師,前端工程師,網頁前端, 網頁設計,台中網頁設計,網站設計,網站架設,網頁製作,架設網站,網站設計公司,客製化網站,架站,客製網站,程式設計公司"
         />
-        <base href="https://www.angushyx.co/" />
+
         <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
 
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-BQ1L1GT80L"
+      ></Script>
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-BQ1L1GT80L');
+        `}
+      </Script>
       <main className="container">
         <section className=" mr-30 flex justify-center py-4 md:justify-between lg:px-20">
           <div className="text-center md:text-start">
