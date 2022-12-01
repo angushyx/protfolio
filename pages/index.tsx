@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { NextPage } from "next"
-import Script from "next/script"
+
 import Head from "next/head"
 import { FaGithub, FaMediumM } from "react-icons/fa"
 import { BsLink45Deg } from "react-icons/bs"
@@ -35,19 +35,6 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
         <base href="https://www.angushyx.co/" />
         <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-BQ1L1GT80L"
-      ></Script>
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-BQ1L1GT80L');
-        `}
-      </Script>
 
       <main className="container">
         <section className=" mr-30 flex justify-center py-4 md:justify-between lg:px-20">
