@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react"
 import { FaGithub, FaMedium } from "react-icons/fa"
-import Link from "next/link"
 import axios from "axios"
 
 const Footer = () => {
@@ -32,16 +31,24 @@ const Footer = () => {
             </p>
           </div>
           <ul className="flex gap-4 text-3xl md:items-center">
-            <Link href="https://github.com/angushyx">
+            <a
+              target="_blank"
+              href="https://github.com/angushyx"
+              rel="noreferrer"
+            >
               <li className="hover:cursor-pointer hover:text-gray-600">
                 <FaGithub />
               </li>
-            </Link>
-            <Link href="https://medium.com/@sickmi14798">
+            </a>
+            <a
+              target="_blank"
+              href="https://medium.com/@sickmi14798"
+              rel="noreferrer"
+            >
               <li className="hover:cursor-pointer hover:text-gray-600">
                 <FaMedium />
               </li>
-            </Link>
+            </a>
           </ul>
         </div>
         <ul className="pb-10 pt-3">

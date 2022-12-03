@@ -103,11 +103,15 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
                   Email me
                 </button>
               </Link>
-              <Link href="https://www.cakeresume.com/s--wHeWvC7hUtZmzal-32jraA--/angus-259cd2">
+              <a
+                href="https://www.cakeresume.com/s--wHeWvC7hUtZmzal-32jraA--/angus-259cd2"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <button className="aBtn rounded-2xl bg-blue-700 text-gray-200 hover:text-white">
                   Resume
                 </button>
-              </Link>
+              </a>
             </div>
           </div>
           <div className="hidden  h-52 w-52 rounded-full  bg-gradient-to-bl  from-yellow-200 to-blue-100 drop-shadow-2xl  md:flex md:h-80 md:w-80 lg:h-96 lg:w-96 ">

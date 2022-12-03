@@ -4,7 +4,6 @@ import { BiDetail } from "react-icons/bi"
 import Tooltip from "@mui/material/Tooltip"
 import Button from "@mui/material/Button"
 import Image from "next/image"
-import Link from "next/link"
 import { Projects } from "../typeScript"
 
 const ProductCard = ({
@@ -19,7 +18,11 @@ const ProductCard = ({
   return (
     <>
       <div className="w-full rounded-lg p-3 md:w-6/12">
-        <Link href={webUrl !== "" ? webUrl : githubUrl}>
+        <a
+          target="_blank"
+          href={webUrl !== "" ? webUrl : githubUrl}
+          rel="noreferrer"
+        >
           <div className="relative h-56 w-full cursor-pointer md:h-36 lg:h-44 xl:h-64 ">
             <Image
               src={imgUrl}
@@ -29,7 +32,7 @@ const ProductCard = ({
               className="rounded-lg"
             />
           </div>
-        </Link>
+        </a>
         <div className="-translate-y-2">
           <div
             className={`flex items-center justify-evenly gap-2  p-2 ${
@@ -63,22 +66,26 @@ const ProductCard = ({
             </div>
           </div>
           <div className="flex justify-evenly gap-3 rounded-b-lg bg-[#586a7e] p-3 text-white">
-            <Link href={`/work/projects/${id}`}>
+            <a target="_blank" href={`/work/projects/${id}`} rel="noreferrer">
               <p className="flex items-center gap-3  hover:cursor-pointer hover:text-sky-300 ">
                 <span>
                   <BiDetail />
                 </span>
                 Detail
               </p>
-            </Link>
-            <Link href={webUrl !== "" ? webUrl : githubUrl}>
+            </a>
+            <a
+              target="_blank"
+              href={webUrl !== "" ? webUrl : githubUrl}
+              rel="noreferrer"
+            >
               <p className="flex items-center gap-3  hover:cursor-pointer hover:text-sky-300 ">
                 <span>
                   <BsEyeFill />
                 </span>
                 Live View
               </p>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

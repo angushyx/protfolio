@@ -71,25 +71,37 @@ const about = () => {
                   Contact
                 </button>
               </Link>
-              <Link href="https://www.cakeresume.com/s--wHeWvC7hUtZmzal-32jraA--/angus-259cd2">
+              <a
+                target="_blank"
+                href="https://www.cakeresume.com/s--wHeWvC7hUtZmzal-32jraA--/angus-259cd2"
+                rel="noreferrer"
+              >
                 <button className="m-3 w-28 rounded-lg bg-yellow-50 p-1 text-blue-700 ring-2 ring-blue-500 md:w-24">
                   Profiles
                 </button>
-              </Link>
+              </a>
             </div>
             <div className="justify-self-end">
               <h3 className="my-3">Follow me on</h3>
               <ul className="flex justify-center gap-4 text-3xl md:items-center">
-                <Link href="https://github.com/angushyx">
+                <a
+                  target="_blank"
+                  href="https://github.com/angushyx"
+                  rel="noreferrer"
+                >
                   <li className="hover:cursor-pointer hover:text-gray-600">
                     <FaGithub />
                   </li>
-                </Link>
-                <Link href="https://medium.com/@sickmi14798">
+                </a>
+                <a
+                  target="_blank"
+                  href="https://medium.com/@sickmi14798"
+                  rel="noreferrer"
+                >
                   <li className="hover:cursor-pointer hover:text-gray-600">
                     <FaMedium />
                   </li>
-                </Link>
+                </a>
               </ul>
             </div>
           </div>

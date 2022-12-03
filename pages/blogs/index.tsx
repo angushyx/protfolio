@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import Head from "next/head"
 import { GetStaticProps } from "next"
 import axios from "axios"
-import Link from "next/link"
 import BlogCard from "../../components/BlogCard"
 import { IBlogs } from "../../typeScript"
 import { BsBoxArrowInUpRight } from "react-icons/bs"
@@ -140,25 +139,34 @@ const Blogs = () => {
             >
               {currentBlog.description}
             </h2>
-            <Link className="z-30" href={currentBlog.url}>
+            <a
+              target="_blank"
+              className="z-30"
+              href={currentBlog.url}
+              rel="noreferrer"
+            >
               <button className="flex items-center gap-3 rounded-lg bg-blue-700 p-2 text-white ring-2 ring-blue-500  transition duration-150 ease-in-out hover:scale-105  hover:cursor-pointer hover:ring-blue-300 active:scale-95">
                 Read Blog
                 <BsBoxArrowInUpRight />
               </button>
-            </Link>
+            </a>
             <p className="my-3">Read this blog on your favorite platform:</p>
 
             <div className="flex gap-4">
-              <Link href="https://medium.com/@sickmi14798">
+              <a
+                target="_blank"
+                href="https://medium.com/@sickmi14798"
+                rel="noreferrer"
+              >
                 <button className="text-2xl hover:cursor-pointer hover:text-gray-600">
                   <FaMedium />
                 </button>
-              </Link>
-              <Link href={currentBlog.url}>
+              </a>
+              <a target="_blank" href={currentBlog.url} rel="noreferrer">
                 <button className="text-2xl hover:cursor-pointer hover:text-gray-600">
                   <FaDev />
                 </button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
