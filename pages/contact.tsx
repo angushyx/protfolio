@@ -4,14 +4,38 @@ import Head from "next/head"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { InlineWidget } from "react-calendly"
+import axios from "axios"
+import moment from "moment"
+type formData = {
+  id: number
+  name: string
+  email: string
+  message: string
+  create_time: string
+}
 
 const Contact = () => {
+  const userId: number = Math.floor(Math.random() * 10000)
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       message: "",
     },
+
+    onSubmit: async (values) => {
+      await sendMail({
+        id: userId,
+        name: values.name,
+        email: values.email,
+        message: values.message,
+        create_time: moment().format("YYYY-MM-DD h:mm:ss"),
+      })
+      values.name = ""
+      values.email = ""
+      values.message = ""
+    },
+
     validationSchema: Yup.object({
       name: Yup.string().max(15, "姓名不得超過15個字元").required("請輸入姓名"),
       email: Yup.string()
@@ -19,13 +43,30 @@ const Contact = () => {
         .required("此欄位不得為空"),
       message: Yup.string().required("請輸入內容"),
     }),
-
-    onSubmit: () => {
-      handleSubmit()
-    },
   })
 
-  const handleSubmit = () => {}
+  const sendMail = ({ id, name, email, message, create_time }: formData) => {
+    console.log(id, name, email, message, create_time)
+    // try {
+    //   axios.post("/api/email", {
+    //     id,
+    //     name,
+    //     email,
+    //     message,
+    //     create_time,
+    //   })
+
+    //   //todo:清空input
+    // } catch (err) {
+    //   console.log(err)
+    // }
+  }
+
+  const showNameError = formik.errors.name
+  const showEmailError = formik.errors.email
+  const showMessageError = formik.errors.message
+
+  const isAllValid = !showNameError && !showEmailError && !showMessageError
 
   return (
     <>
@@ -53,21 +94,26 @@ const Contact = () => {
             <div className="my-8 md:my-0">
               <form
                 onSubmit={formik.handleSubmit}
-                className="flex flex-col gap-5 text-center"
+                className="flex flex-col text-center"
               >
                 <h2 className="text-2xl">Simply leave a message</h2>
-                <div className="">
+                <div className={`${!showNameError && "mb-10"} mt-5`}>
                   <label htmlFor="name"></label>
                   <input
-                    className="w-full py-2 px-4"
+                    className={`${
+                      showNameError ? " border-red-100" : "border-black-100"
+                    } w-full border  py-2 px-4`}
                     name="name"
                     placeholder="姓名"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
                   />
+                  {showNameError && (
+                    <p className="my-2  text-red-700">{formik.errors.name}</p>
+                  )}
                 </div>
-                <div className="">
+                <div className={`${!showEmailError && "mb-10"}`}>
                   <label htmlFor="email"></label>
                   <input
                     className="w-full py-2 px-4"
@@ -78,9 +124,12 @@ const Contact = () => {
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
                   />
+                  {showEmailError && (
+                    <p className="my-2 text-red-700 ">{formik.errors.email}</p>
+                  )}
                 </div>
 
-                <div className="">
+                <div className={`${!showMessageError && "mb-10"} `}>
                   <label htmlFor="message"></label>
                   <textarea
                     className="h-44 w-full py-2 px-4"
@@ -90,8 +139,28 @@ const Contact = () => {
                     onBlur={formik.handleBlur}
                     value={formik.values.message}
                   />
+                  {showMessageError && (
+                    <p className="my-2 text-red-700 ">
+                      {formik.errors.message}
+                    </p>
+                  )}
                 </div>
-                <button className="aBtn">傳送訊息</button>
+                {isAllValid ? (
+                  <button
+                    className="e-in-out flex items-center justify-center gap-3 rounded-lg p-2  text-blue-700 ring-2 ring-blue-500 transition  duration-150 ease-in-out hover:scale-105 hover:text-blue-400 hover:ring-blue-300"
+                    type="submit"
+                  >
+                    傳送訊息
+                  </button>
+                ) : (
+                  <button
+                    className="e-in-out flex cursor-not-allowed items-center justify-center gap-3 rounded-lg  p-2 text-red-700 ring-2 ring-red-500  transition duration-150 ease-in-out"
+                    disabled
+                    type="submit"
+                  >
+                    請填寫完整資訊
+                  </button>
+                )}
               </form>
             </div>
             <div className="text-center">
