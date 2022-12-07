@@ -1,23 +1,25 @@
 import * as React from "react"
 import Alert from "@mui/material/Alert"
 import Stack from "@mui/material/Stack"
+import { BiBadgeCheck } from "react-icons/bi"
+import { motion as m } from "framer-motion"
 
 export default function IconAlerts() {
   return (
-    <Stack sx={{ width: "100%" }} spacing={2}>
-      {/* <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
-        This is a success alert — check it out!
-      </Alert>
-      <Alert
-        iconMapping={{
-          success: <CheckCircleOutlineIcon fontSize="inherit" />,
-        }}
-      > */}
-      {/* This is a success alert — check it out!
-      </Alert> */}
-      <Alert icon={false} severity="success">
-        This is a success alert — check it out!
-      </Alert>
-    </Stack>
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="fixed top-40 right-16 w-[20%]"
+    >
+      <Stack spacing={2}>
+        <Alert
+          className="justify-center"
+          icon={<BiBadgeCheck fontSize="inherit" />}
+          severity="success"
+        >
+          mail 已送出!!!
+        </Alert>
+      </Stack>
+    </m.div>
   )
 }
