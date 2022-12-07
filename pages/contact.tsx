@@ -165,7 +165,7 @@ const Contact = () => {
                     type="submit"
                   >
                     {loading && (
-                      <div className=" h-5 w-5 animate-spin border-2 border-blue-600"></div>
+                      <div className=" h-5 w-5 animate-spin rounded-full border-y-2 border-blue-600"></div>
                     )}
                     {loading ? "正在傳送訊息..." : "傳送訊息"}
                   </button>
