@@ -6,6 +6,8 @@ import * as Yup from "yup"
 import { InlineWidget } from "react-calendly"
 import axios from "axios"
 import moment from "moment"
+import IconAlert from "../components/UI/IconAlerts"
+
 type formData = {
   id: number
   name: string
@@ -17,6 +19,7 @@ type formData = {
 const Contact = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const userId: number = Math.floor(Math.random() * 10000)
+  const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -36,6 +39,10 @@ const Contact = () => {
       values.email = ""
       values.message = ""
       await setLoading((prev) => !prev)
+      await setIsSuccess((prev) => !prev)
+      await setTimeout(() => {
+        setIsSuccess((prev) => !prev)
+      }, 2000)
     },
 
     validationSchema: Yup.object({
@@ -87,6 +94,8 @@ const Contact = () => {
 
         <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>
+      {isSuccess && <IconAlert />}
+
       <section>
         <div className="container flex flex-col py-5">
           <div className="text-center">
@@ -158,7 +167,7 @@ const Contact = () => {
                     {loading && (
                       <div className=" h-5 w-5 animate-spin border-2 border-blue-600"></div>
                     )}
-                    傳送訊息
+                    {loading ? "正在傳送訊息..." : "傳送訊息"}
                   </button>
                 ) : (
                   <button
