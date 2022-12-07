@@ -1,8 +1,5 @@
 import nodemailer from "nodemailer"
 
-console.log("process.env", process.env.NEXT_PUBLIC_EMAIL_ADDRESS)
-console.log("process.env", process.env.NEXT_PUBLIC_PASSWORD)
-
 const email = process.env.NEXT_PUBLIC_EMAIL_ADDRESS
 const password = process.env.NEXT_PUBLIC_PASSWORD
 

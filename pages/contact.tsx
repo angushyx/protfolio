@@ -152,9 +152,12 @@ const Contact = () => {
                 </div>
                 {isAllValid ? (
                   <button
-                    className=" flex items-center justify-center gap-3 rounded-lg p-2  text-blue-700 ring-2 ring-blue-500 transition  duration-150 ease-in-out hover:scale-105 hover:text-blue-400 hover:ring-blue-300"
+                    className=" flex items-center justify-center gap-3 rounded-lg p-2  text-blue-700 ring-2 ring-blue-500 transition  duration-150 ease-in-out hover:scale-105  hover:text-blue-400 hover:ring-blue-300"
                     type="submit"
                   >
+                    {loading && (
+                      <div className=" h-5 w-5 animate-spin border-2 border-blue-600"></div>
+                    )}
                     傳送訊息
                   </button>
                 ) : (
@@ -166,7 +169,6 @@ const Contact = () => {
                     請填寫完整資訊
                   </button>
                 )}
-                {loading && "loading"}
               </form>
             </div>
             <div className="text-center">

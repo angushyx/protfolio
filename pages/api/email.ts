@@ -12,19 +12,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "POST") {
       const { id, name, email, message } = req.body
 
-      console.log("id", id)
-
       if (!id || !name || !email || !message) {
         return res.status(400).json({ message: "Request failed" })
       }
 
-      console.log(message)
-
       await transporter.sendMail({
         ...mailOptions,
-        subject: message,
-        text: "This is  a test message",
-        html: "<h1>Test test</h1>",
+        subject: `我是${name} 這是我的信箱 ${email}`,
+        text: message,
+        html: `<p>${message}</p>`,
       })
 
       res.status(201).json({ message: "success sended!!" })
