@@ -1,23 +1,36 @@
-import { MongoClient } from "mongodb"
 import { NextApiRequest, NextApiResponse } from "next"
+import { transporter, mailOptions } from "../../config/nodemailer"
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    const data = req.body
+  if (req.method !== "POST") {
+    return res.status(404).send({ error: "Not Post error." })
+  }
 
-    const client = await MongoClient.connect(
-      process.env.MONGODB_URI ?? "whatever default"
-    )
-    const db = client.db()
-    const portfolioCollection = db.collection("portfolio")
+  res.setHeader("Content-Type", "application/json")
 
-    const result = await portfolioCollection.insertOne(data)
+  try {
+    if (req.method === "POST") {
+      const { id, name, email, message } = req.body
 
-    console.log(result)
+      console.log("id", id)
 
-    client.close()
+      if (!id || !name || !email || !message) {
+        return res.status(400).json({ message: "Request failed" })
+      }
 
-    res.status(201).json({ message: "success sended!!" })
+      console.log(message)
+
+      await transporter.sendMail({
+        ...mailOptions,
+        subject: message,
+        text: "This is  a test message",
+        html: "<h1>Test test</h1>",
+      })
+
+      res.status(201).json({ message: "success sended!!" })
+    }
+  } catch (err) {
+    res.status(500).json({ error: err })
   }
 }
 

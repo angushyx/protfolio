@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react"
+import React, { useState } from "react"
 import Head from "next/head"
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -15,6 +15,7 @@ type formData = {
 }
 
 const Contact = () => {
+  const [loading, setLoading] = useState<boolean>(false)
   const userId: number = Math.floor(Math.random() * 10000)
   const formik = useFormik({
     initialValues: {
@@ -34,32 +35,35 @@ const Contact = () => {
       values.name = ""
       values.email = ""
       values.message = ""
+      await setLoading((prev) => !prev)
     },
 
     validationSchema: Yup.object({
-      name: Yup.string().max(15, "姓名不得超過15個字元").required("請輸入姓名"),
-      email: Yup.string()
-        .email("請輸入有效的信箱格式")
-        .required("此欄位不得為空"),
-      message: Yup.string().required("請輸入內容"),
+      name: Yup.string().max(15, "姓名不得超過15個字元").required("必填"),
+      email: Yup.string().email("無效信箱").required("必填"),
+      message: Yup.string().required("必填"),
     }),
   })
 
-  const sendMail = ({ id, name, email, message, create_time }: formData) => {
-    console.log(id, name, email, message, create_time)
-    // try {
-    //   axios.post("/api/email", {
-    //     id,
-    //     name,
-    //     email,
-    //     message,
-    //     create_time,
-    //   })
-
-    //   //todo:清空input
-    // } catch (err) {
-    //   console.log(err)
-    // }
+  const sendMail = async ({
+    id,
+    name,
+    email,
+    message,
+    create_time,
+  }: formData) => {
+    setLoading((prev) => !prev)
+    try {
+      await axios.post("/api/email", {
+        id,
+        name,
+        email,
+        message,
+        create_time,
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const showNameError = formik.errors.name
@@ -100,9 +104,7 @@ const Contact = () => {
                 <div className={`${!showNameError && "mb-10"} mt-5`}>
                   <label htmlFor="name"></label>
                   <input
-                    className={`${
-                      showNameError ? " border-red-100" : "border-black-100"
-                    } w-full border  py-2 px-4`}
+                    className={` w-full border border-red-100 py-2 px-4`}
                     name="name"
                     placeholder="姓名"
                     onChange={formik.handleChange}
@@ -110,7 +112,9 @@ const Contact = () => {
                     value={formik.values.name}
                   />
                   {showNameError && (
-                    <p className="my-2  text-red-700">{formik.errors.name}</p>
+                    <p className="mt-1 mb-4 text-start text-sm  text-red-700">
+                      {formik.errors.name}
+                    </p>
                   )}
                 </div>
                 <div className={`${!showEmailError && "mb-10"}`}>
@@ -125,10 +129,11 @@ const Contact = () => {
                     value={formik.values.email}
                   />
                   {showEmailError && (
-                    <p className="my-2 text-red-700 ">{formik.errors.email}</p>
+                    <p className="mt-1 mb-4 text-start text-sm text-red-700 ">
+                      {formik.errors.email}
+                    </p>
                   )}
                 </div>
-
                 <div className={`${!showMessageError && "mb-10"} `}>
                   <label htmlFor="message"></label>
                   <textarea
@@ -140,27 +145,28 @@ const Contact = () => {
                     value={formik.values.message}
                   />
                   {showMessageError && (
-                    <p className="my-2 text-red-700 ">
+                    <p className="mt-1 mb-4 text-start text-sm text-red-700 ">
                       {formik.errors.message}
                     </p>
                   )}
                 </div>
                 {isAllValid ? (
                   <button
-                    className="e-in-out flex items-center justify-center gap-3 rounded-lg p-2  text-blue-700 ring-2 ring-blue-500 transition  duration-150 ease-in-out hover:scale-105 hover:text-blue-400 hover:ring-blue-300"
+                    className=" flex items-center justify-center gap-3 rounded-lg p-2  text-blue-700 ring-2 ring-blue-500 transition  duration-150 ease-in-out hover:scale-105 hover:text-blue-400 hover:ring-blue-300"
                     type="submit"
                   >
                     傳送訊息
                   </button>
                 ) : (
                   <button
-                    className="e-in-out flex cursor-not-allowed items-center justify-center gap-3 rounded-lg  p-2 text-red-700 ring-2 ring-red-500  transition duration-150 ease-in-out"
+                    className=" flex cursor-not-allowed items-center justify-center gap-3 rounded-lg  p-2 text-red-700 ring-2 ring-red-500  transition duration-150 ease-in-out"
                     disabled
                     type="submit"
                   >
                     請填寫完整資訊
                   </button>
                 )}
+                {loading && "loading"}
               </form>
             </div>
             <div className="text-center">
