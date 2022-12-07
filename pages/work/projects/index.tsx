@@ -9,10 +9,11 @@ const Projects = ({ projects }: Props) => {
   return (
     <>
       <Head>
-        <title>Angus work</title>
+        <title>Angus 個人網站 - Side Project | 作品集</title>
+        <meta name="description" content="此頁面存放著所實做過的所有專案" />
         <meta
-          name="description"
-          content="Hello my name is angus. I'm a Web developer. 哈囉大家好，我是黃奕翔，是一名網頁開發工程師。"
+          name="keywords"
+          content="Angus,Angushyx,黃奕翔,網頁開發工程師,前端工程師,網頁前端, 網頁設計,台中網頁設計,網站設計,網站架設,網頁製作,架設網站,網站設計公司,客製化網站,架站,客製網站,程式設計公司"
         />
         <link rel="icon" href="https://i.imgur.com/y7fKZP2.png" />
       </Head>

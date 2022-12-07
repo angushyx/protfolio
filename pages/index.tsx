@@ -23,7 +23,7 @@ const Home: NextPage<Props> = ({ techs, projects }: Props) => {
       <Head>
         <title>
           Angus 個人網站 - | 網站設計 | 台中網頁 | 網頁開發 | 台北網頁設計 |
-          網站 | 網頁 | 預約會議
+          網站 | 網頁 | 網站架設 | 架站
         </title>
         <meta
           name="description"

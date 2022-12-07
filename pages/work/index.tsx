@@ -36,13 +36,10 @@ const Work = ({ projects }: Props) => {
   return (
     <>
       <Head>
-        <title>
-          Angus 個人網站 - | 網站設計 | 台中網頁 | 網頁開發 | 台北網頁設計 |
-          預約會議
-        </title>
+        <title>Angus 個人網站 - 工作相關 | 個人作品集 | 部落格文章</title>
         <meta
           name="description"
-          content="哈囉大家好，我是黃奕翔，一名網頁開發工程師, 提供各種客製化服務，網站設計、網頁設計、程式設計, 一條龍規劃整合您的需求，配合您的商業模式，獨創您的企業風采，台北網頁設計、台中網頁設計、全台灣皆有服務。"
+          content="工作內容有架設網站、網頁開發以及撰寫部落格文章。"
         />
         <meta
           name="keywords"
