@@ -41,7 +41,6 @@ const Projects = ({ projects }: Props) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  //TODO:引用 typescript檔案來定義
   const url: string = process.env.MONGODB_URI ?? "whatever default"
 
   const client = await MongoClient.connect(url)
