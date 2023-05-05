@@ -19,6 +19,7 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState<IBlogs[]>([])
   const [currentBlogId, setCurrentBlogId] = useState<number>()
   const [isScrolled, setIsScrolled] = useState<boolean>(false)
+  //TODO:認真要改的話，這裡應該改成『當點擊到』modal-content裡面的退出按鈕
   const [showModal, setShowModal] = useState<boolean>(false)
 
   const getBlogData = async () => {
@@ -173,7 +174,7 @@ const Blogs = () => {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className={`relative`}>
               {showModal && (
-                <Modal showModal={showModal} handlePop={handlePop}>
+                <Modal handlePop={handlePop} showModal={showModal}>
                   <div className="transform-3d my-28 mx-auto flex w-full px-3 md:p-0 md:px-0 lg:my-32 xl:my-48">
                     {ts30
                       .reverse()
@@ -186,6 +187,7 @@ const Blogs = () => {
                               handleCurrentId={() => {
                                 handleCurrentId(ts.id)
                               }}
+                              handlePop={handlePop}
                               index={ts30.indexOf(ts) + 1}
                               id={ts.id}
                               showModal={showModal}

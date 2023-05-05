@@ -7,7 +7,7 @@ interface IProps {
   showModal: boolean
 }
 
-const Modal = ({ children, handlePop, showModal }: IProps) => {
+const Modal = ({ children, showModal, handlePop }: IProps) => {
   return (
     <m.div
       initial={

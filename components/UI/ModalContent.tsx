@@ -2,11 +2,15 @@ import React from "react"
 import { IBlogsList } from "../../typeScript"
 import moment from "moment"
 import Image from "next/image"
-import { AiFillEye, AiOutlineClockCircle } from "react-icons/ai"
+import {
+  AiFillEye,
+  AiOutlineClockCircle,
+  AiOutlineLink,
+  // AiOutlineCloseCircle,
+} from "react-icons/ai"
 import { GoThumbsup } from "react-icons/go"
 // import { motion as m } from "framer-motion"
 
-//TODO：這裡其實用不到 url
 const ModalContent = ({
   id,
   handleCurrentId,
@@ -44,7 +48,9 @@ const ModalContent = ({
 
   return (
     <>
-      {/* 一 */}
+      {/* <button className="absolute right-[20%]">
+        <AiOutlineCloseCircle className="text-3xl text-red-400 " />
+      </button> */}
       <div
         onClick={handleCurrentId}
         className={`${carousel} mx-auto bg-white shadow-xl`}
@@ -61,18 +67,23 @@ const ModalContent = ({
           <p className="py-2">{moment(created_at).format("YYYY-MM-DD ")}</p>
           <h4 className="mb-3 line-clamp-2">{description}</h4>
           <div className="border-t-2 border-gray-700">
-            <ul className="my-3 flex justify-between">
-              <li className="flex items-center justify-center gap-3">
+            <ul className="my-3 flex justify-start gap-5">
+              <li className="flex items-center justify-center gap-1">
                 <AiFillEye />
                 {public_reactions_count}
               </li>
-              <li className="flex items-center justify-center gap-3">
+              <li className="flex items-center justify-center gap-1">
                 <GoThumbsup />
                 {public_reactions_count}
               </li>
-              <li className="flex items-center justify-center gap-3">
+              <li className="flex items-center justify-center gap-1">
                 <AiOutlineClockCircle />
                 {reading_time_minutes} min
+              </li>
+              <li className=" ml-auto flex items-center gap-1">
+                <a href={url} target="_blank" rel="noreferrer">
+                  <AiOutlineLink className="text-2xl hover:text-blue-500" />
+                </a>
               </li>
             </ul>
           </div>
