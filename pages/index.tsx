@@ -201,6 +201,12 @@ export const getStaticProps: GetStaticProps = async () => {
   const techs = await techCollection.find().toArray()
   const projects = await projectCollection.find().toArray()
 
+  projects.sort((a, b) => {
+    const dateA = new Date(a.createDate).getTime()
+    const dateB = new Date(b.createDate).getTime()
+    return dateB - dateA
+  })
+
   client.close()
 
   return {
