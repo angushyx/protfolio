@@ -108,8 +108,12 @@ const about = () => {
             HI, 我是 Angus 是一名前端工程師
             <div className="leading-7">
               目前是一名全端工程師，畢業後第一份工作，在嘉碼科技當網頁工程師，主要工作內容是負責研發公司內部產品，其中包括網站、APP的前端、後端功能開發，現在公司要做的項目除了使用網頁技術外（Vue2
-              ＋ Node.js），也會用到 React
-              Native。
+              ＋ Node.js），也會用到 React Native。
+              喜歡研究各種不同的新技術，另外還有做一個 side project
+              是關於股市回測功能，使用技術為 Next.js 14 和
+              Python（backend），資料庫則是使用
+              MongoDB，除了前後端的開發之外，目前也在專案中導入、並且練習使用
+              Docker、Kubernetes 等容器化與容器管理平台。
             </div>
           </article>
         </section>

@@ -25,6 +25,12 @@ const nextConfig = {
         port: "",
         pathname: "/practicaldev/image/fetch/**",
       },
+      {
+        protocol: "https",
+        hostname: "media.dev.to",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 }
